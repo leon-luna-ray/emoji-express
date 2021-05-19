@@ -17,21 +17,23 @@ export const getPosts = async (req, res) => {
 };
 
 export const createPost = async (req, res) => {
+  console.log(`
+        📌 POST request received!
+    `);
   // input from the front end creates a post request in req.body
   const post = req.body;
   const newPost = new emojiPost(post);
 
-  console.log(`
-  
-        📌 POST request received!
-
-        ${newPost}
-    `);
-
   // async await for post to save to db and return 201
   try {
     await newPost.save();
-    res.status(201).json(console.log(newPost));
+    res.status(201).json(
+      console.log(`
+            ${newPost}
+
+            💾 New POST saved to database.
+    `)
+    );
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
