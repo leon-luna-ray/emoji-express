@@ -1,23 +1,46 @@
+import dotenv from 'dotenv';
 import express from 'express';
+// import bodyParser from 'body-parser'; Unsure if this will still be needed
 import mongoose from 'mongoose';
 import cors from 'cors';
 
+// import routes
+import postRoutes from './routes/postRoutes.js';
+
+dotenv.config();
 const PORT = process.env.PORT || 3001;
+const app = express();
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
-// Add routes, both API and view
-app.use(routes);
+// body parsing from express
+app.use(express.urlencoded({ limit: '30mb', extended: true }));
+app.use(express.json({ limit: '30mb', extended: true }));
+app.use(cors());
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/weed');
+//routes
+app.use('/posts', postRoutes);
 
-// Start the API server
-app.listen(PORT, function () {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+// db connection https://www.mongodb.com/cloud/atlas
+mongoose
+  .connect(process.env.MONGODB_URI || 'mongodb://localhost/emoji_db', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  //mongoose will first attempt to connect to db and then run the server
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`
+
+        📡 The server is listening on PORT: ${PORT}
+
+    `);
+    });
+  })
+  .catch((error) => {
+    console.log(`
+
+        ❌ Database connection error!
+        
+    `);
+  });
+
+mongoose.set('useFindAndModify', false);
