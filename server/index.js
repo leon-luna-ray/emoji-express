@@ -35,11 +35,9 @@ mongoose
     `);
     });
   })
-  .catch((error) => {
+  .catch(error => {
     console.log(`
-
         ❌ Database connection error!
-        
     `);
   });
 

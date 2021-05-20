@@ -4,7 +4,7 @@ import emojiPost from '../models/emojiPost.js';
 export const getPosts = async (req, res) => {
   // for testing
   console.log(`
-        📟 GET request received!
+        🔍  GET request received!
     `);
   try {
     // async await for the db to return the data then send res 200
@@ -19,7 +19,7 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
   console.log(`
         📌 POST request received!
-    `);
+  `);
   // input from the front end creates a post request in req.body
   const post = req.body;
   const newPost = new emojiPost(post);
@@ -30,10 +30,13 @@ export const createPost = async (req, res) => {
     res.status(201).json(
       console.log(`
           💾 New POST saved to database.
-      ${newPost}
+    ${newPost}
     `)
     );
   } catch (error) {
     res.status(409).json({ message: error.message });
+    console.log(`
+        ❌ Database connection error!
+    `);
   }
 };
