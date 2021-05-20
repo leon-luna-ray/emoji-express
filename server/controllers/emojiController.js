@@ -29,9 +29,8 @@ export const createPost = async (req, res) => {
     await newPost.save();
     res.status(201).json(
       console.log(`
-            ${newPost}
-
-            💾 New POST saved to database.
+          💾 New POST saved to database.
+      ${newPost}
     `)
     );
   } catch (error) {
