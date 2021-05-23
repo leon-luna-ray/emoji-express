@@ -16,16 +16,14 @@ const EmojiBtn = () => {
   const dispatch = useDispatch();
 
   const handleClick = e => {
-    console.log('Click Happy!');
-
     e.preventDefault();
     setEmojiData({ ...emojiData, name: 'happy', emoji: '😀' });
     dispatch(createPost(emojiData));
   };
   return (
     <div className='emoji-div' onClick={handleClick}>
-      <h1 className='emoji'>😀</h1>
-      <p>Happy</p>
+      <h1 id='emoji'>😀</h1>
+      <p id='emoji-name'>Happy</p>
     </div>
   );
 };
