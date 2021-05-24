@@ -3,10 +3,11 @@ import { useDispatch } from 'react-redux';
 import { createPost } from '../../actions/emojiPosts';
 import './style.css';
 
-const EmojiBtn = () => {
+const EmojiBtn = props => {
   const [emojiData, setEmojiData] = useState({
     name: '',
     emoji: '',
+    type: '',
     createdAt: {
       type: Date,
       default: Date(),
