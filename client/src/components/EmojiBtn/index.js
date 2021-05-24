@@ -6,8 +6,10 @@ import './style.css';
 const EmojiBtn = props => {
   const [emojiData, setEmojiData] = useState({
     name: '',
-    emoji: '',
+    secondary: '',
     type: '',
+    level: '',
+    emoji: '',
     createdAt: {
       type: Date,
       default: Date(),
