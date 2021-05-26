@@ -24,7 +24,11 @@ export const createPost = async (req, res) => {
   const post = req.body;
   const newPost = new emojiPost(post);
 
-  // async await for post to save to db and return 201
+  // async await for post to save to db and return 201,
+
+  //THIS IS WHERE YOU'RE STUCK
+  // The data is being recorded by the state on the emojiBtn and being sent to the up to this point where it gives a database connection error.
+
   try {
     await newPost.save();
     res.status(201).json(
@@ -36,7 +40,12 @@ export const createPost = async (req, res) => {
   } catch (error) {
     res.status(409).json({ message: error.message });
     console.log(`
+      
         ❌ Database connection error!
+
+        ⚠️  Unsaved data:
+
+        ${newPost}
     `);
   }
 };

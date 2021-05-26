@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
   name: String,
+  secondary: String,
+  type: String,
+  level: String,
   emoji: String,
   createdAt: {
     type: Date,
