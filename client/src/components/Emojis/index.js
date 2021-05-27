@@ -1,3 +1,5 @@
+// need to research passing props to render each emoji with props and then have that data passed to the server on click
+
 const emojis = [
   {
     name: 'Afraid',
