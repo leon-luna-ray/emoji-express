@@ -7,8 +7,12 @@ import './style.css';
 const EmojiBtn = () => {
   const gridEmojis = emojis;
 
+  const handleClick = () => {
+    console.log('clicked!');
+  };
+
   return (
-    <div className='emoji-div'>
+    <div className='emoji-div' onClick={handleClick}>
       {gridEmojis.map(emoji => (
         <div className='emoji-btn'>
           <h1>{emoji.emoji}</h1>
