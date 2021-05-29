@@ -1,8 +1,10 @@
 import React from 'react';
 import EmojiBtn from '../EmojiBtn';
 
-const EmojiGrid = () => {
-  return <EmojiBtn />;
-};
+class EmojiGrid extends React.Component {
+  render() {
+    return <EmojiBtn />;
+  }
+}
 
 export default EmojiGrid;
