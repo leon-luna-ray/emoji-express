@@ -7,9 +7,7 @@ import './style.css';
 const EmojiBtn = () => {
   const gridEmojis = emojis;
 
-  const handleClick = () => {
-    console.log('clicked!');
-  };
+  const handleClick = () => {};
 
   return (
     <div className='emoji-div' onClick={handleClick}>

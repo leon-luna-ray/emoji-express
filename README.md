@@ -1,4 +1,4 @@
-# shiny-octo-happiness
+# Emoji Tracker
 
 `🚧 in development 🚧`
 
