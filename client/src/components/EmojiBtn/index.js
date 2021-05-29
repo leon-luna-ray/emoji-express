@@ -5,6 +5,7 @@ import emojis from '../Emojis';
 import './style.css';
 
 const EmojiBtn = () => {
+  // need to figure out how to get props to the back end on clicck.
   const gridEmojis = emojis;
 
   return (
