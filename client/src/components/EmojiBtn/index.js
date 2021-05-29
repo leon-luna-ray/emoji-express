@@ -8,11 +8,14 @@ const EmojiBtn = () => {
   const gridEmojis = emojis;
 
   return (
-    <ol>
+    <div className='emoji-div'>
       {gridEmojis.map(emoji => (
-        <li key={emoji.name}>{emoji.emoji}</li>
+        <div className='emoji-btn'>
+          <h1>{emoji.emoji}</h1>
+          <p>{emoji.name}</p>
+        </div>
       ))}
-    </ol>
+    </div>
   );
 };
 
