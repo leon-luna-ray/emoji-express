@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { createPost } from '../../actions/emojiPosts';
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../actions/emojiPosts';
 import emojis from '../Emojis';
 import './style.css';
 
@@ -15,6 +15,8 @@ const EmojiBtn = () => {
     emoji: '',
   });
 
+  const dispatch = useDispatch();
+
   // Emoji data sucessfully transferred from the emoji file to here to the console from handle click. Will then send this to the backend to save the mood.
 
   // this will submit the post to the backend along with the previous ones
@@ -23,6 +25,7 @@ const EmojiBtn = () => {
   const handleEmoji = e => {
     e.preventDefault();
     console.log(postData);
+    dispatch(createPost(postData));
   };
 
   return (
