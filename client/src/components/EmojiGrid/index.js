@@ -1,6 +1,7 @@
 import React from 'react';
 import EmojiBtn from '../EmojiBtn';
 import emojis from '../Emojis';
+import './style.css';
 
 const EmojiGrid = () => {
   const gridEmojis = emojis;
@@ -9,9 +10,11 @@ const EmojiGrid = () => {
   // Will need to find a way to create a new row every six buttons.
   return (
     <div className='emoji-grid'>
-      {gridEmojis.map(emoji => (
-        <EmojiBtn emoji={emoji} />
-      ))}
+      <div className='emoji-div'>
+        {gridEmojis.map(emoji => (
+          <EmojiBtn emoji={emoji} />
+        ))}
+      </div>
     </div>
   );
 };
