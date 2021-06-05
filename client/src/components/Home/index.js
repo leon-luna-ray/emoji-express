@@ -17,8 +17,8 @@ const HomePage = () => {
 
   return (
     <Container>
-      <EmojiPosts />
       <EmojiGrid />
+      <EmojiPosts />
     </Container>
   );
 };

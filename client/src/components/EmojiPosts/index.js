@@ -8,8 +8,7 @@ const EmojiPosts = () => {
   return (
     <div className='emoji-posts'>
       {posts.map(post => (
-        <div>
-          <h1>Today I feel...</h1>
+        <div className='emoji-post'>
           <EmojiPost post={post} />
         </div>
       ))}
