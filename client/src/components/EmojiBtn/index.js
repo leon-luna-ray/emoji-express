@@ -15,6 +15,7 @@ const EmojiBtn = ({ emoji }) => {
     window.location.reload(false);
   };
 
+  // try doing type=submit
   return (
     <div
       id={emoji.name}
