@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 // import redux hook useDispatch
 import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/emojiPosts';
 
 // Props will get passed in from the grid component as an array of objects. This will then be deconstructed and used to render the emoji.
 const EmojiBtn = ({ emoji }) => {
   const [emojiState] = useState(emoji);
   const dispatch = useDispatch();
 
-  const handleClick = e => {
-    e.preventDefault();
-    dispatch(createPost(emojiState));
-    // Using window reload on click to get emoji on the page on click. Need to find a way to use state to do this since the time since does show up on click without page reload. 🤔
-    window.location.reload(false);
+  const handleClick = (e) => {
+    // try to send the state back up through a function in the home page class with emoji grid as the intermediate
+    // From the homepage you will then update the state which will then create the post send to the database
   };
 
   // try doing type=submit

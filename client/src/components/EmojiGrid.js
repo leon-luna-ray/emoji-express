@@ -1,7 +1,7 @@
 import React from 'react';
-import EmojiBtn from '../EmojiBtn';
-import emojis from '../Emojis';
-import './style.css';
+import EmojiBtn from './EmojiBtn';
+import emojis from './Emojis';
+import './EmojiGrid.css';
 
 const EmojiGrid = () => {
   const gridEmojis = emojis;
@@ -11,7 +11,7 @@ const EmojiGrid = () => {
   return (
     <div className='emoji-grid'>
       <div className='emoji-div'>
-        {gridEmojis.map(emoji => (
+        {gridEmojis.map((emoji) => (
           <EmojiBtn key={emoji.name} emoji={emoji} />
         ))}
       </div>
