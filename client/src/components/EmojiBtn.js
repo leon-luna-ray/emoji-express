@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import redux hook useDispatch
 import { useDispatch } from 'react-redux';
 

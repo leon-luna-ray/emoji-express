@@ -6,13 +6,9 @@ import EmojiGrid from './EmojiGrid';
 // import EmojiPosts from '../EmojiPosts';
 
 class Home extends React.Component {
-  state = { userEmoji: null };
-
-  // May need to be async as this will need to be sent to the db
-  newUserEmoji = (emoji) => {
-    this.setState({ userEmoji: emoji });
-    console.log(`Inside newUserEmoji Method : ${emoji.name}
-    `);
+  // May need to be async as this will need to be sent to the db, test to see if you can get it into the db. Will re-render when the data is returned.
+  newUserEmoji = async (emoji) => {
+    console.log(`log the emoji clicked: ${emoji}`);
   };
 
   render() {
