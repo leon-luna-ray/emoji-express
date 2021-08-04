@@ -6,18 +6,19 @@ import EmojiGrid from './EmojiGrid';
 // import EmojiPosts from '../EmojiPosts';
 
 class Home extends React.Component {
-  // useDispatch hook from redux
-  // const dispatch = useDispatch();
+  state = { userEmoji: null };
 
-  // // useEffect takes a callback and an empty array as parameters
-  // useEffect(() => {
-  //   // dispatch will dispatch an action, here getPosts
-  //   dispatch(getPosts());
-  // }, [dispatch]);
+  // May need to be async as this will need to be sent to the db
+  newUserEmoji = (emoji) => {
+    this.setState({ userEmoji: emoji });
+    console.log(`Inside newUserEmoji Method : ${emoji.name}
+    `);
+  };
+
   render() {
     return (
       <Container>
-        <EmojiGrid />
+        <EmojiGrid newUserEmoji={this.newUserEmoji} />
         {/* <EmojiPosts /> */}
       </Container>
     );
