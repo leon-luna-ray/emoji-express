@@ -1,4 +1,4 @@
-# Emoji Tracker
+# 🚧 Emoji Tracker
 
 ## Description
 
@@ -60,7 +60,5 @@ If you have any questions about the repo, open an issue or contact me directly a
 - GitHub: [leon-luna-ray](https://github.com/leon-luna-ray)
 
 ## Links
-
-- [Deployed Project]()
 
 - [Project Repository](https://github.com/leon-luna-ray/emoji-tracker)
