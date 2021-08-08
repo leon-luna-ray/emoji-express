@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
-// import { getPosts } from '../../actions/emojiPosts';
+import { useDispatch } from 'react-redux';
+import { createPost } from '../actions/emojiPosts';
 import { Container } from '@material-ui/core';
 import EmojiGrid from './EmojiGrid';
+import EmojiPost from './EmojiPost';
 // import EmojiPosts from '../EmojiPosts';
 
 const Home = () => {
   // Set initial state
   const [userEmoji, setUserEmoji] = useState('');
+  const dispatch = useDispatch();
 
-  // Update state and send post to db
-  const newUserEmoji = (emoji) => {
-    setUserEmoji(emoji);
-    // May need to be async as this will need to be sent to the db
-    console.log(`newUserEmoji function: the new emoji clicked: ${emoji.name}`);
-  };
+  // add post state for displaying on posts section
+  // try using the dropdown in the react course to make the fist index display at the top of the page, once the user choose a new emoji add it to the side bar but avoid it in both with an if/else as shown in the example
 
-  // On state change update components
+  // On state change create new post send to db
   useEffect(() => {
-    // From here you will want to update the top status bar to display the current mood and add to side bar (if/once created)
-    console.log(`UseEffect: the user emoji state is ${userEmoji.emoji}`);
-  }, [userEmoji]);
+    dispatch(createPost(userEmoji));
+  }, [userEmoji, dispatch]);
 
   return (
     <Container>

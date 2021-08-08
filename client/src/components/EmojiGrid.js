@@ -9,6 +9,8 @@ const EmojiGrid = ({ setUserEmoji }) => {
   // Render emoji btns by importing them from the emoji file.
   // Will need to find a way to create a new row every six buttons.
   // you may want to try doing two returns within here to get the styling
+
+  // try using the modulus operator
   return (
     <div className='emoji-grid'>
       <div className='emoji-div'>
@@ -16,7 +18,7 @@ const EmojiGrid = ({ setUserEmoji }) => {
           <EmojiBtn
             key={emoji.name}
             emoji={emoji}
-            newUserEmoji={setUserEmoji}
+            setUserEmoji={setUserEmoji}
           />
         ))}
       </div>

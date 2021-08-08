@@ -1,7 +1,4 @@
 import React from 'react';
-// import redux hook useDispatch
-import { useDispatch } from 'react-redux';
-
 // Props will get passed in from the grid component as an array of objects. This will then be deconstructed and used to render the emoji.
 const EmojiBtn = ({ emoji, setUserEmoji }) => {
   return (
