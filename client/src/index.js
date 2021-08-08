@@ -5,6 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
 import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
