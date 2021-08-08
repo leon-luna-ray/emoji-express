@@ -11,6 +11,12 @@ const EmojiGrid = ({ setUserEmoji }) => {
   // you may want to try doing two returns within here to get the styling
 
   // try using the modulus operator
+
+  // create another return for the rendered buttons
+  const renderedBtns = () => {
+    <div className='row'>{emojis.forEach((emoji, index) => {})}</div>;
+  };
+
   return (
     <div className='emoji-grid'>
       <div className='emoji-div'>
