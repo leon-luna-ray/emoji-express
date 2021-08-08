@@ -1,7 +1,7 @@
 import React from 'react';
 import emojis from './Emojis';
 import EmojiBtn from './EmojiBtn';
-import './EmojiGrid.css';
+// import './EmojiGrid.css';
 
 const EmojiGrid = ({ setUserEmoji }) => {
   const emojiSet = emojis;
@@ -9,10 +9,10 @@ const EmojiGrid = ({ setUserEmoji }) => {
   const renderRows = (row, index) => {
     return (
       <div key={index} className='row'>
-        {row.map((emoji) => {
+        {row.map((emoji, index) => {
           return (
             <>
-              <EmojiBtn emoji={emoji} setUserEmoji={setUserEmoji} />
+              <EmojiBtn key={index} emoji={emoji} setUserEmoji={setUserEmoji} />
             </>
           );
         })}

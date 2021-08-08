@@ -3,7 +3,9 @@ import { useDispatch } from 'react-redux';
 import { createPost } from '../actions/emojiPosts';
 import { Container } from '@material-ui/core';
 import EmojiGrid from './EmojiGrid';
-import EmojiPost from './EmojiPost';
+import Mood from './Mood';
+import './index.css';
+// import EmojiPost from './EmojiPost';
 // import EmojiPosts from '../EmojiPosts';
 
 const Home = () => {
@@ -21,6 +23,11 @@ const Home = () => {
 
   return (
     <Container>
+      <br />
+      <Mood userEmoji={userEmoji} />
+      <br />
+      <br />
+      <br />
       <EmojiGrid setUserEmoji={setUserEmoji} />
       {/* <EmojiPosts /> */}
     </Container>
