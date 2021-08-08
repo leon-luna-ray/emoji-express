@@ -3,7 +3,7 @@ import EmojiBtn from './EmojiBtn';
 import emojis from './Emojis';
 import './EmojiGrid.css';
 
-const EmojiGrid = ({ newUserEmoji }) => {
+const EmojiGrid = ({ setUserEmoji }) => {
   const gridEmojis = emojis;
 
   // Render emoji btns by importing them from the emoji file.
@@ -16,7 +16,7 @@ const EmojiGrid = ({ newUserEmoji }) => {
           <EmojiBtn
             key={emoji.name}
             emoji={emoji}
-            newUserEmoji={newUserEmoji}
+            newUserEmoji={setUserEmoji}
           />
         ))}
       </div>

@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <Container>
-      <EmojiGrid newUserEmoji={newUserEmoji} />
+      <EmojiGrid setUserEmoji={setUserEmoji} />
       {/* <EmojiPosts /> */}
     </Container>
   );
