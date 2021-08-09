@@ -13,9 +13,6 @@ const Home = () => {
   const [userEmoji, setUserEmoji] = useState('');
   const dispatch = useDispatch();
 
-  // add post state for displaying on posts section
-  // try using the dropdown in the react course to make the fist index display at the top of the page, once the user choose a new emoji add it to the side bar but avoid it in both with an if/else as shown in the example
-
   // On state change create new post send to db
   useEffect(() => {
     // Prevents creating post on first load
@@ -23,7 +20,7 @@ const Home = () => {
       dispatch(createPost(userEmoji));
     }
     return () => {
-      // Cleanup function to reset the state allowing for multiple posts on click
+      // Cleanup function to reset the state
       setUserEmoji('');
     };
   }, [userEmoji, dispatch]);
