@@ -18,7 +18,14 @@ const Home = () => {
 
   // On state change create new post send to db
   useEffect(() => {
-    dispatch(createPost(userEmoji));
+    // Prevents creating post on first load
+    if (userEmoji !== '') {
+      dispatch(createPost(userEmoji));
+    }
+    return () => {
+      // Cleanup function to reset the state allowing for multiple posts on click
+      setUserEmoji('');
+    };
   }, [userEmoji, dispatch]);
 
   return (

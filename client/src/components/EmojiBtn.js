@@ -6,7 +6,9 @@ const EmojiBtn = ({ emoji, setUserEmoji }) => {
       id={emoji.name}
       name={emoji.name}
       className='emoji-btn col'
-      onClick={() => setUserEmoji(emoji)}
+      onClick={() => {
+        setUserEmoji(emoji);
+      }}
     >
       <h1 className='emoji'>{emoji.emoji}</h1>
       <p className='emoji-name'>{emoji.name}</p>

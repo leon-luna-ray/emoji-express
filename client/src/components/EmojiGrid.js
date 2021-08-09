@@ -1,7 +1,6 @@
 import React from 'react';
 import emojis from './Emojis';
 import EmojiBtn from './EmojiBtn';
-// import './EmojiGrid.css';
 
 const EmojiGrid = ({ setUserEmoji }) => {
   const emojiSet = emojis;
