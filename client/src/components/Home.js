@@ -5,8 +5,7 @@ import { Container } from '@material-ui/core';
 import EmojiGrid from './EmojiGrid';
 import Mood from './Mood';
 import './index.css';
-// import EmojiPost from './EmojiPost';
-// import EmojiPosts from '../EmojiPosts';
+// import EmojiPosts from './EmojiPosts';
 
 const Home = () => {
   // Set initial state
@@ -27,11 +26,10 @@ const Home = () => {
 
   return (
     <Container>
-      <br />
+      {/* <br />
       <Mood userEmoji={userEmoji} />
       <br />
-      <br />
-      <br />
+      <br />*/}
       <EmojiGrid setUserEmoji={setUserEmoji} />
       {/* <EmojiPosts /> */}
     </Container>

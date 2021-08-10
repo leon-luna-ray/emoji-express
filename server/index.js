@@ -1,9 +1,8 @@
-import dotenv from 'dotenv';
 import express from 'express';
 // import bodyParser from 'body-parser'; Unsure if this will still be needed
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import cors from 'cors';
-
 // import routes
 import postRoutes from './routes/postRoutes.js';
 
@@ -20,6 +19,8 @@ app.use(cors());
 app.use('/posts', postRoutes);
 
 // db connection https://www.mongodb.com/cloud/atlas
+
+console.log();
 mongoose
   .connect(process.env.MONGODB_URI || 'mongodb://localhost/emoji_db', {
     useNewUrlParser: true,
@@ -35,9 +36,10 @@ mongoose
     `);
     });
   })
-  .catch(error => {
+  .catch((error) => {
     console.log(`
         ❌ Database connection error!
+        ${error}
     `);
   });
 
