@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPost, getPosts } from '../actions/posts';
 import { Container } from '@material-ui/core';
-// import EmojiGrid from './EmojiGrid';
-import Mood from './Mood';
+import EmojiGrid from './EmojiGrid';
+// import Mood from './Mood';
 import './index.css';
 import EmojiPosts from './EmojiPosts';
 
@@ -35,7 +35,7 @@ const Home = () => {
       <Mood userEmoji={userEmoji} />
       <br />
       <br />*/}
-      {/* <EmojiGrid setUserEmoji={setUserEmoji} /> */}
+      <EmojiGrid setUserEmoji={setUserEmoji} />
       <EmojiPosts />
     </Container>
   );

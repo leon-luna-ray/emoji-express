@@ -6,7 +6,8 @@ import EmojiPost from './EmojiPost';
 import NoPosts from './NoPosts';
 
 const EmojiPosts = () => {
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.posts).reverse();
+
   console.log(posts);
   return !posts.length ? (
     <NoPosts />
