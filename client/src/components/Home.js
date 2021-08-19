@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { createPost } from '../actions/emojiPosts';
+import { createPost, getPosts } from '../actions/posts';
 import { Container } from '@material-ui/core';
-import EmojiGrid from './EmojiGrid';
+// import EmojiGrid from './EmojiGrid';
 import Mood from './Mood';
 import './index.css';
-// import EmojiPosts from './EmojiPosts';
+import EmojiPosts from './EmojiPosts';
 
 const Home = () => {
   // Set initial state
@@ -24,14 +24,19 @@ const Home = () => {
     };
   }, [userEmoji, dispatch]);
 
+  // Get emoji posts from db
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [userEmoji, dispatch]);
+
   return (
     <Container>
       {/* <br />
       <Mood userEmoji={userEmoji} />
       <br />
       <br />*/}
-      <EmojiGrid setUserEmoji={setUserEmoji} />
-      {/* <EmojiPosts /> */}
+      {/* <EmojiGrid setUserEmoji={setUserEmoji} /> */}
+      <EmojiPosts />
     </Container>
   );
 };

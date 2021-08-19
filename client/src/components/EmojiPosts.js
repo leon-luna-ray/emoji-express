@@ -3,11 +3,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ListGroup } from 'react-bootstrap';
 import EmojiPost from './EmojiPost';
+import NoPosts from './NoPosts';
 
 const EmojiPosts = () => {
   const posts = useSelector((state) => state.posts);
   console.log(posts);
-  return (
+  return !posts.length ? (
+    <NoPosts />
+  ) : (
     <div className='emoji-posts'>
       <ListGroup>
         {posts.map((post) => (
