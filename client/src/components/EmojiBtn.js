@@ -6,6 +6,7 @@ const EmojiBtn = ({ emoji, setUserEmoji }) => {
       id={emoji.name}
       name={emoji.name}
       className='emoji-btn col'
+      // Change this click event to display a modal with the option to add details and submit btn.
       onClick={() => {
         setUserEmoji(emoji);
       }}

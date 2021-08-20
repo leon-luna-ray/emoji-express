@@ -1,4 +1,5 @@
 import React from 'react';
+// Bug with moment will only display the same amount of time so far on the same day.
 import moment from 'moment';
 
 const EmojiPost = ({ post }) => {
@@ -7,8 +8,9 @@ const EmojiPost = ({ post }) => {
 
   return (
     <div key={post._id} className='post-content'>
-      <h1>{post.emoji}</h1>
-      <p>{post.name}</p>
+      <h4>
+        {post.emoji} {post.name}
+      </h4>
       <p>{sinceCreated}</p>
     </div>
   );
