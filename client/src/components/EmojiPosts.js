@@ -1,7 +1,7 @@
 import React from 'react';
 // Hook to get posts from backend
 import { useSelector } from 'react-redux';
-import { ListGroup } from 'react-bootstrap';
+import { List } from 'semantic-ui-react';
 import EmojiPost from './EmojiPost';
 import NoPosts from './NoPosts';
 
@@ -13,13 +13,13 @@ const EmojiPosts = () => {
     <NoPosts />
   ) : (
     <div className='emoji-posts'>
-      <ListGroup>
+      <List>
         {posts.map((post) => (
-          <ListGroup.Item key={post._id} className='emoji-post'>
+          <List.Item key={post._id} className='emoji-post'>
             <EmojiPost post={post} />
-          </ListGroup.Item>
+          </List.Item>
         ))}
-      </ListGroup>
+      </List>
     </div>
   );
 };

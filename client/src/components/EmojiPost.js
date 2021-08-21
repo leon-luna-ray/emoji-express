@@ -1,4 +1,5 @@
 import React from 'react';
+import { List } from 'semantic-ui-react';
 // Bug with moment will only display the same amount of time so far on the same day.
 import moment from 'moment';
 
@@ -7,12 +8,12 @@ const EmojiPost = ({ post }) => {
   const sinceCreated = moment(post.createdAt).fromNow();
 
   return (
-    <div key={post._id} className='post-content'>
-      <h4>
+    <List.Content key={post._id} className='post-content'>
+      <List.Header>
         {post.emoji} {post.name}
-      </h4>
-      <p>{sinceCreated}</p>
-    </div>
+      </List.Header>
+      <List.Description>{sinceCreated}</List.Description>
+    </List.Content>
   );
 };
 
