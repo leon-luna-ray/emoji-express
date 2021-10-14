@@ -1,25 +1,34 @@
 import React from 'react';
-import emojis from './Emojis';
+import emojis from './emojis';
 import EmojiBtn from './EmojiBtn';
+import { Container, Col, Row } from 'react-bootstrap';
 
 const EmojiGrid = ({ setUserEmoji }) => {
-  const emojiSet = emojis;
-
-  const renderRows = (row, index) => {
+  const emojiBtns = emojis.map((emoji, index) => {
     return (
-      <div key={index} className='row'>
-        {row.map((emoji, index) => {
-          return (
-            <>
-              <EmojiBtn key={index} emoji={emoji} setUserEmoji={setUserEmoji} />
-            </>
-          );
-        })}
-      </div>
+      <Col>
+        <EmojiBtn key={index} emoji={emoji} setUserEmoji={setUserEmoji} />
+      </Col>
     );
+  });
+
+  // Method takes an array and will return rows with in groups of 3
+  const renderRows = (buttons) => {
+    // Regrouped items pushed to this array
+    const rows = [];
+    // Loop through the array and arrange in rows of 6
+    while (buttons.length) {
+      rows.push(buttons.splice(0, 6));
+    }
+    // When the loop is complete map each group to create a new row
+    const renderedRows = rows.map((row, index) => {
+      return <Row key={index}>{row}</Row>;
+    });
+
+    return renderedRows;
   };
 
-  return <div className='emoji-grid grid'>{emojiSet.map(renderRows)}</div>;
+  return <Container>{renderRows(emojiBtns)}</Container>;
 };
 
 export default EmojiGrid;
