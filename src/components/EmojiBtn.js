@@ -12,7 +12,7 @@ const EmojiBtn = ({ emoji, setUserEmoji }) => {
       }}
     >
       <h1 className='emoji'>{emoji.emoji}</h1>
-      <p className='emoji-name'>{emoji.name}</p>
+      <p className='emoji-name text-uppercase'>{emoji.name}</p>
     </div>
   );
 };
