@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import EmojiGrid from './EmojiGrid';
-import UserPosts from './UserPosts';
+// import UserPosts from './UserPosts';
 import { Container } from 'react-bootstrap';
 import './index.css';
 

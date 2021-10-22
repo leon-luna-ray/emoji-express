@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import EmojiTracker from './components/EmojiTracker';
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     <div className='App'>
       <Router>
         <Switch>
-          <Route exact path='/' component={EmojiTracker} />
+          <Route path='/' exact component={EmojiTracker} />
         </Switch>
       </Router>
     </div>

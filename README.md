@@ -1,8 +1,10 @@
-# 🚧 Emoji Tracker
+# Emoji Tracker
 
 ## Description
 
-Emoji mood tracking application currently in development. The app will feature a set of emojis for the user to quickly choose how they're feeling at the moment. The user will then be have access to a GUI with their data.
+A mood tracking app using emojis. The app will let the user click on how they're feeling and store a record of each emoji in the user's local storage. More features to come!
+
+[🚀 Launch](https://leon-luna-ray.github.io/emoji-tracker)
 
 ## Table of Contents
 
@@ -16,34 +18,28 @@ Emoji mood tracking application currently in development. The app will feature a
 
 ## Image
 
-![Screenshot](./client/public/assets/img/emoji-tracker.png)
+![Screenshot](./public/assets/emoji-tracker.png)
 
 ## Technologies
 
-- Javascript
-- React.js
-- React-Bootstrap
-- React-Redux
-- Node.js
-- Express.js
-- Cors
-- MongoDB
-- Mongoose
 - HTML
 - CSS
+- Javascript
+- React.js
+- Node.js
 - Bootstrap
 
 ## Known-Bugs
 
-- Emoji will only work once when clicked, user will have to pick another emoji or refresh
+- The first entry does not save to local on click.
 
 ## Next-Steps
 
-- Authentication
-- GUI
-- Historical data (sidebar)
-- Journal or details option
-- Other emoji option
+- Fix bugs
+- Show posts for the past week
+- Connect to a database
+- User Authentication
+- Graphs/metrics
 
 ## License
 
@@ -60,5 +56,7 @@ If you have any questions about the repo, open an issue or contact me directly a
 - GitHub: [leon-luna-ray](https://github.com/leon-luna-ray)
 
 ## Links
+
+- [Deployed Project](https://leon-luna-ray.github.io/emoji-tracker)
 
 - [Project Repository](https://github.com/leon-luna-ray/emoji-tracker)
