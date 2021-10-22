@@ -19,6 +19,7 @@ const EmojiGrid = ({ userEmoji, setUserEmoji }) => {
         <Row>
           <Mood userEmoji={userEmoji} />
         </Row>
+        <br />
         <Row>{emojiBtns}</Row>
       </Container>
     </Card>

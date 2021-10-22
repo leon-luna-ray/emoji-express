@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import EmojiGrid from './EmojiGrid';
+import UserPosts from './UserPosts';
+import { Container } from 'react-bootstrap';
 import './index.css';
 
 const EmojiTracker = () => {
   const [post, setPost] = useState(null);
-  const [posts, setPosts] = useState(null);
+  const [posts, setPosts] = useState(
+    JSON.parse(localStorage.getItem('emoji-tracker'))
+  );
   const [userEmoji, setUserEmoji] = useState(null);
 
   const fetchSavedPosts = () => {
@@ -26,20 +30,30 @@ const EmojiTracker = () => {
       'emoji-tracker',
       JSON.stringify([post, ...savedPosts])
     );
-    setPosts(fetchSavedPosts());
+    setPosts(JSON.parse(localStorage.getItem('emoji-tracker')));
   };
 
   // Capture post data and set to state on user click
   useEffect(() => {
+    if (!userEmoji) return;
     setPost({
       createdAt: new Date(),
       _id: uuidv4(),
-      data: userEmoji,
+      name: userEmoji.name,
+      secondary: userEmoji.secondary,
+      type: userEmoji.type,
+      level: userEmoji.level,
+      emoji: userEmoji.emoji,
     });
     saveToLocalStorage();
   }, [userEmoji]);
 
-  return <EmojiGrid userEmoji={userEmoji} setUserEmoji={setUserEmoji} />;
+  return (
+    <Container>
+      <EmojiGrid userEmoji={userEmoji} setUserEmoji={setUserEmoji} />
+      {/* <UserPosts posts={posts} /> */}
+    </Container>
+  );
 };
 
 export default EmojiTracker;
