@@ -2,7 +2,7 @@
   "name": "emoji-tracker",
   "version": "3.0.0",
   "private": true,
-  "homepage": "https://leon-luna-ray.github.io/emoji-tracker",
+  "homepage": "https://leon-luna-ray.github.io",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^5.12.0",
