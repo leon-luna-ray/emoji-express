@@ -6,37 +6,19 @@ import { Container } from 'react-bootstrap';
 import './index.css';
 
 const EmojiTracker = () => {
-  const [post, setPost] = useState(null);
-  const [posts, setPosts] = useState(
-    JSON.parse(localStorage.getItem('emoji-tracker'))
-  );
+  const [posts, setPosts] = useState([]);
   const [userEmoji, setUserEmoji] = useState(null);
 
   const fetchSavedPosts = () => {
-    let posts = JSON.parse(localStorage.getItem('emoji-tracker'));
-    if (!posts) {
-      posts = [];
-      return posts;
+    const savedPosts = localStorage.getItem('emoji-tracker');
+    if (!savedPosts) {
+      return;
     }
-    return posts;
-    // if there are return the array and parse
+    setPosts(JSON.parse(savedPosts));
   };
 
-  const saveToLocalStorage = () => {
-    if (!post) return;
-
-    const savedPosts = fetchSavedPosts();
-    localStorage.setItem(
-      'emoji-tracker',
-      JSON.stringify([post, ...savedPosts])
-    );
-    setPosts(JSON.parse(localStorage.getItem('emoji-tracker')));
-  };
-
-  // Capture post data and set to state on user click
-  useEffect(() => {
-    if (!userEmoji) return;
-    setPost({
+  const savePost = () => {
+    const newPost = {
       createdAt: new Date(),
       _id: uuidv4(),
       name: userEmoji.name,
@@ -44,10 +26,25 @@ const EmojiTracker = () => {
       type: userEmoji.type,
       level: userEmoji.level,
       emoji: userEmoji.emoji,
-    });
-    saveToLocalStorage();
-  }, [userEmoji]);
+    };
+    const updatedPosts = [newPost, ...posts];
+    localStorage.setItem('emoji-tracker', JSON.stringify(updatedPosts));
+    fetchSavedPosts();
+    console.log(updatedPosts);
+  };
 
+  useEffect(() => {
+    fetchSavedPosts();
+  }, []);
+
+  // Capture post data and set to state on user click
+  useEffect(() => {
+    if (userEmoji) {
+      savePost();
+    }
+    return;
+  }, [userEmoji]);
+  console.log(posts);
   return (
     <Container>
       <EmojiGrid userEmoji={userEmoji} setUserEmoji={setUserEmoji} />
