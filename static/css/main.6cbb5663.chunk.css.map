@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/styles/index.css"],"names":[],"mappings":"AAAA,WAEE,cACF,CAEA,kBAJE,iBAMF","file":"main.6cbb5663.chunk.css","sourcesContent":[".emoji-btn {\n  text-align: center;\n  cursor: pointer;\n}\n\n.title {\n  text-align: center;\n}\n"]}
