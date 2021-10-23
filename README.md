@@ -4,7 +4,7 @@
 
 A mood tracking app using emojis. The app will let the user click on how they're feeling and store a record of each emoji in the user's local storage. More features to come!
 
-[🚀 Launch](https://leon-luna-ray.github.io/emoji-tracker)
+[🚀 Launch](https://emojitracker.app)
 
 ## Table of Contents
 
@@ -31,12 +31,10 @@ A mood tracking app using emojis. The app will let the user click on how they're
 
 ## Known-Bugs
 
-- The first entry does not save to local on click.
-
 ## Next-Steps
 
-- Fix bugs
 - Show posts for the past week
+- Full stack app
 - Connect to a database
 - User Authentication
 - Graphs/metrics
@@ -57,6 +55,6 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 ## Links
 
-- [Deployed Project](https://leon-luna-ray.github.io/emoji-tracker)
+- [Deployed Project](https://emojitracker.app)
 
 - [Project Repository](https://github.com/leon-luna-ray/emoji-tracker)
