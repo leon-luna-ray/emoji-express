@@ -1,16 +1,22 @@
 import React from 'react';
+import { Card, Col } from 'react-bootstrap';
 
 const UserPosts = ({ posts }) => {
-  console.log(posts);
-  return posts ? (
-    <div>
-      {posts.map((post, index) => {
-        return <div>{post.emoji}</div>;
-      })}
-    </div>
-  ) : (
-    <h1>🤷🏻‍♂️ No Posts 🤷🏻‍♂️</h1>
-  );
+  const renderedPosts = () => {
+    console.log(posts);
+    posts.map((post, index) => {
+      return (
+        <Col xs={4} md={3} lg={2}>
+          <Card key={index} className='text-center'>
+            <h1> {post.emoji}</h1>
+            <p className='post-title'>{post.name}</p>
+            <p className='post-subtext'>{post.createdAt}</p>
+          </Card>
+        </Col>
+      );
+    });
+  };
+  return renderedPosts;
 };
 
 export default UserPosts;

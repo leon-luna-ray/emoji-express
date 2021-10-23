@@ -1,6 +1,6 @@
 import React from 'react';
 // Props will get passed in from the grid component as an array of objects. This will then be deconstructed and used to render the emoji.
-const EmojiBtn = ({ emoji, setUserEmoji }) => {
+const EmojiBtn = ({ emoji, setCurrentEmoji }) => {
   return (
     <div
       id={emoji.name}
@@ -8,7 +8,7 @@ const EmojiBtn = ({ emoji, setUserEmoji }) => {
       className='emoji-btn'
       // Change this click event to display a modal with the option to add details and submit btn.
       onClick={() => {
-        setUserEmoji(emoji);
+        setCurrentEmoji(emoji);
       }}
     >
       <h1 className='emoji'>{emoji.emoji}</h1>

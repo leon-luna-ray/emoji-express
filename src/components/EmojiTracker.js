@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
+import { Container, Row, Col } from 'react-bootstrap';
 import EmojiGrid from './EmojiGrid';
-// import UserPosts from './UserPosts';
-import { Container } from 'react-bootstrap';
+import UserPosts from './UserPosts';
+import DarkModeBtn from './DarkModeBtn';
 import '../styles/index.css';
 
 const EmojiTracker = () => {
   const [posts, setPosts] = useState([]);
   const [currentEmoji, setCurrentEmoji] = useState(null);
+
   // GET ROUTE
   const fetchSavedPosts = () => {
     const savedPosts = localStorage.getItem('emoji-tracker');
@@ -15,7 +18,9 @@ const EmojiTracker = () => {
       return;
     }
     setPosts(JSON.parse(savedPosts));
+    // console.log(posts);
   };
+
   // POST ROUTE
   const savePost = () => {
     const newPost = {
@@ -29,6 +34,7 @@ const EmojiTracker = () => {
     };
     const updatedPosts = [newPost, ...posts];
     localStorage.setItem('emoji-tracker', JSON.stringify(updatedPosts));
+
     fetchSavedPosts();
   };
 
@@ -36,6 +42,7 @@ const EmojiTracker = () => {
   useEffect(() => {
     fetchSavedPosts();
   }, []);
+
   // Capture post data, set to state and save to local storage on change
   useEffect(() => {
     if (currentEmoji) {
@@ -46,11 +53,22 @@ const EmojiTracker = () => {
 
   return (
     <Container>
-      <EmojiGrid
-        currentEmoji={currentEmoji}
-        setCurrentEmoji={setCurrentEmoji}
-      />
-      {/* <UserPosts posts={posts} /> */}
+      <Row>
+        <Col className='d-flex justify-content-end'>
+          <DarkModeBtn />
+        </Col>
+      </Row>
+      <Row>
+        <EmojiGrid
+          currentEmoji={currentEmoji}
+          setCurrentEmoji={setCurrentEmoji}
+        />
+      </Row>
+      <br />
+      <br />
+      <Row>
+        <UserPosts posts={posts} />
+      </Row>
     </Container>
   );
 };

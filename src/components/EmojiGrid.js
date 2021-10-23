@@ -1,29 +1,27 @@
 import React from 'react';
 import emojis from './emojis';
 import EmojiBtn from './EmojiBtn';
-import Mood from './Mood';
-import { Container, Card, Col, Row } from 'react-bootstrap';
+import Header from './Header';
+import { Card, Col, Row } from 'react-bootstrap';
 
-const EmojiGrid = ({ userEmoji, setUserEmoji }) => {
-  const emojiBtns = emojis.map((emoji, index) => {
+const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
+  const renderEmojiBtns = emojis.map((emoji, index) => {
     return (
-      <Col key={index} sm={6} md={4} lg={2}>
-        <EmojiBtn key={index} emoji={emoji} setUserEmoji={setUserEmoji} />
+      <Col key={index} xs={4} md={3} lg={2}>
+        <EmojiBtn key={index} emoji={emoji} setCurrentEmoji={setCurrentEmoji} />
       </Col>
     );
   });
 
   return (
-    <Card>
-      <Container>
-        <br />
-        <Row>
-          <Mood userEmoji={userEmoji} />
-        </Row>
-        <br />
-        <Row>{emojiBtns}</Row>
-      </Container>
-    </Card>
+    <div>
+      <br />
+      <Row>
+        <Header currentEmoji={currentEmoji} />
+      </Row>
+      <br />
+      <Row>{renderEmojiBtns}</Row>
+    </div>
   );
 };
 
