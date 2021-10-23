@@ -18,7 +18,6 @@ const EmojiTracker = () => {
       return;
     }
     setPosts(JSON.parse(savedPosts));
-    // console.log(posts);
   };
 
   // POST ROUTE
@@ -36,6 +35,24 @@ const EmojiTracker = () => {
     localStorage.setItem('emoji-tracker', JSON.stringify(updatedPosts));
 
     fetchSavedPosts();
+  };
+
+  const formatDateAndTime = (createdAt) => {
+    if (!createdAt) {
+      return { date: '', time: '' };
+    }
+    const date = new Date(createdAt);
+    const postDate = date.toLocaleDateString('en-US', {
+      dateStyle: 'medium',
+    });
+    const postTime = date.toLocaleTimeString('en-US', {
+      timeStyle: 'short',
+    });
+
+    return {
+      date: postDate,
+      time: postTime,
+    };
   };
 
   // Fetch posts and set to state on mount
@@ -67,7 +84,7 @@ const EmojiTracker = () => {
       <br />
       <br />
       <Row>
-        <UserPosts posts={posts} />
+        <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} />
       </Row>
     </Container>
   );

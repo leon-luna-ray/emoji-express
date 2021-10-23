@@ -2,7 +2,7 @@ import React from 'react';
 import emojis from './emojis';
 import EmojiBtn from './EmojiBtn';
 import Header from './Header';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
   const renderEmojiBtns = emojis.map((emoji, index) => {
