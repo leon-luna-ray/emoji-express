@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from 'uuid';
 import EmojiGrid from './EmojiGrid';
 // import UserPosts from './UserPosts';
 import { Container } from 'react-bootstrap';
-import './index.css';
+import '../styles/index.css';
 
 const EmojiTracker = () => {
   const [posts, setPosts] = useState([]);
-  const [userEmoji, setUserEmoji] = useState(null);
-
+  const [currentEmoji, setCurrentEmoji] = useState(null);
+  // GET ROUTE
   const fetchSavedPosts = () => {
     const savedPosts = localStorage.getItem('emoji-tracker');
     if (!savedPosts) {
@@ -16,38 +16,40 @@ const EmojiTracker = () => {
     }
     setPosts(JSON.parse(savedPosts));
   };
-
+  // POST ROUTE
   const savePost = () => {
     const newPost = {
       createdAt: new Date(),
       _id: uuidv4(),
-      name: userEmoji.name,
-      secondary: userEmoji.secondary,
-      type: userEmoji.type,
-      level: userEmoji.level,
-      emoji: userEmoji.emoji,
+      name: currentEmoji.name,
+      secondary: currentEmoji.secondary,
+      type: currentEmoji.type,
+      level: currentEmoji.level,
+      emoji: currentEmoji.emoji,
     };
     const updatedPosts = [newPost, ...posts];
     localStorage.setItem('emoji-tracker', JSON.stringify(updatedPosts));
     fetchSavedPosts();
-    console.log(updatedPosts);
   };
 
+  // Fetch posts and set to state on mount
   useEffect(() => {
     fetchSavedPosts();
   }, []);
-
-  // Capture post data and set to state on user click
+  // Capture post data, set to state and save to local storage on change
   useEffect(() => {
-    if (userEmoji) {
+    if (currentEmoji) {
       savePost();
     }
     return;
-  }, [userEmoji]);
-  console.log(posts);
+  }, [currentEmoji]);
+
   return (
     <Container>
-      <EmojiGrid userEmoji={userEmoji} setUserEmoji={setUserEmoji} />
+      <EmojiGrid
+        currentEmoji={currentEmoji}
+        setCurrentEmoji={setCurrentEmoji}
+      />
       {/* <UserPosts posts={posts} /> */}
     </Container>
   );

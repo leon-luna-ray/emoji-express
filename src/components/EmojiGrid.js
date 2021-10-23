@@ -7,7 +7,7 @@ import { Container, Card, Col, Row } from 'react-bootstrap';
 const EmojiGrid = ({ userEmoji, setUserEmoji }) => {
   const emojiBtns = emojis.map((emoji, index) => {
     return (
-      <Col sm={6} md={4} lg={2}>
+      <Col key={index} sm={6} md={4} lg={2}>
         <EmojiBtn key={index} emoji={emoji} setUserEmoji={setUserEmoji} />
       </Col>
     );
