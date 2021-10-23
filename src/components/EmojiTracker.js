@@ -11,7 +11,26 @@ class EmojiTracker extends React.Component {
   //   JSON.parse(localStorage.getItem('emoji-tracker'))
   // );
   // const [userEmoji, setUserEmoji] = useState(null);
+  constructor(props) {
+    super(props);
+    this.state = {
+      post: null,
+      posts: [],
+      currentEmoji: null,
+    };
+  }
 
+  componentDidMount() {
+    this.fetchSavedPosts();
+  }
+
+  fetchSavedPosts() {
+    const savedPosts = localStorage.getItem('emoji-tracker');
+    if (!savedPosts) {
+      return;
+    }
+    this.setState({ posts: JSON.parse(savedPosts) });
+  }
   // const fetchSavedPosts = () => {
   //   let posts = JSON.parse(localStorage.getItem('emoji-tracker'));
   //   if (!posts) {
@@ -21,6 +40,11 @@ class EmojiTracker extends React.Component {
   //   return posts;
   //   // if there are return the array and parse
   // };
+
+  saveToLocalStorage(post) {
+    const updatedPosts = [post, ...this.state.savedPosts];
+    localStorage.setItem('emoji-tracker', JSON.stringify(updatedPosts));
+  }
 
   // const saveToLocalStorage = () => {
   //   if (!post) return;
@@ -48,6 +72,7 @@ class EmojiTracker extends React.Component {
   //   saveToLocalStorage();
   // }, [userEmoji]);
   render() {
+    console.log(this.state.posts);
     return (
       <Container>
         <h1>Emoji Tracker</h1>
