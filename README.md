@@ -4,7 +4,7 @@
 
 A mood tracking app using emojis. The app will let the user click on how they're feeling and store a record of each emoji in the user's local storage. More features to come!
 
-[🚀 Launch](https://emojitracker.app)
+[🚀 https://emoji-tracker.netlify.app/](https://emoji-tracker.netlify.app/)
 
 ## Table of Contents
 
