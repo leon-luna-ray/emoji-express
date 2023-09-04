@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { fetchPosts, createPost } from '../api'
 
 import { Container, Row, Col } from 'react-bootstrap';
-import EmojiGrid from './EmojiGrid';
-import UserPosts from './UserPosts';
-import DarkModeBtn from './DarkModeBtn';
+import EmojiGrid from '../components/EmojiGrid';
+import UserPosts from '../components/UserPosts';
+import DarkModeBtn from '../components/DarkModeBtn';
 import '../styles/index.css';
 
 const EmojiTracker = () => {
+  // State
   const [posts, setPosts] = useState([]);
   const [currentEmoji, setCurrentEmoji] = useState(null);
 
-  // GET ROUTE
-  const fetchSavedPosts = () => {
-    const savedPosts = localStorage.getItem('emoji-tracker');
-    if (!savedPosts) {
-      return;
-    }
-    setPosts(JSON.parse(savedPosts));
+  // Methods
+  const fetchData = async () => {
+    const result = await fetchPosts();
+    setPosts(result?.data.reverse());
   };
-
-  // POST ROUTE
-  const savePost = () => {
+  const savePost = async () => {
     const newPost = {
       createdAt: new Date(),
       _id: uuidv4(),
@@ -31,12 +28,9 @@ const EmojiTracker = () => {
       level: currentEmoji.level,
       emoji: currentEmoji.emoji,
     };
-    const updatedPosts = [newPost, ...posts];
-    localStorage.setItem('emoji-tracker', JSON.stringify(updatedPosts));
-
-    fetchSavedPosts();
+    await createPost(newPost);
+    await fetchData();
   };
-
   const formatDateAndTime = (createdAt) => {
     if (!createdAt) {
       return { date: '', time: '' };
@@ -55,18 +49,18 @@ const EmojiTracker = () => {
     };
   };
 
-  // Fetch posts and set to state on mount
-  useEffect(() => {
-    fetchSavedPosts();
-  }, []);
-
-  // Capture post data, set to state and save to local storage on change
+  // Watchers
   useEffect(() => {
     if (currentEmoji) {
       savePost();
     }
     return;
   }, [currentEmoji]);
+
+  // Lifecycle
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <Container>
