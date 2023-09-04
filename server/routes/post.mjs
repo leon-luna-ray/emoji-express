@@ -1,78 +1,63 @@
-import express from "express";
-import db from "../db/connection.mjs";
-import { ObjectId } from "mongodb";
+// routes/posts.mjs
+import express from 'express';
+import Post from '../models/Post.mjs';
 
 const router = express.Router();
 
-// GET
-router.get("/", async (req, res) => {
-  console.log('fetch request')
-  let collection = await db.collection("posts");
-  let results = await collection.find({}).toArray();
-  res.send(results).status(200);
-});
-router.get("/:id", async (req, res) => {
-  let collection = await db.collection("posts");
-  let query = {_id: new ObjectId(req.params.id)};
-  let result = await collection.findOne(query);
-
-  if (!result) res.send("Not found").status(404);
-  else res.send(result).status(200);
-});
-
-// POST
-router.post("/", async (req, res) => {
-  let newDocument = {
-    _id: req.body._id,
-    createdAt: req.body.createdAt,
-    name: req.body.name,
-    secondary: req.body.secondary,
-    type: req.body.type,
-    level: req.body.level,
-    emoji: req.body.emoji,
-  };
-
-  let collection = await db.collection("posts");
-
+// GET all posts
+router.get('/', async (req, res) => {
   try {
-    let result = await collection.insertOne(newDocument);
-    if(result.acknowledged && result.insertedId) {
-      res.json({acknowledged: true, insertedId: result.insertedId});
-    } else {
-      res.status(500).json({error: "Could not insert document"});
-    }
-  } catch(err) {
-    console.error(err);
-    res.status(500).json({error: "Could not insert document"});
+    const posts = await Post.find();
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: 'Could not fetch posts' });
   }
 });
 
-
-// PATCH
-router.patch("/:id", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.id) };
-  const updates =  {
-    $set: {
-      name: req.body.name,
-      position: req.body.position,
-      level: req.body.level
-    }
-  };
-
-  let collection = await db.collection("posts");
-  let result = await collection.updateOne(query, updates);
-
-  res.send(result).status(200);
+// GET a specific post by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+    res.json(post);
+  } catch (error) {
+    res.status(500).json({ error: 'Could not fetch the post' });
+  }
 });
 
-// DELETE
-router.delete("/:id", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.id) };
+// POST a new post
+router.post('/', async (req, res) => {
+  try {
+    const newPost = new Post(req.body);
+    await newPost.save();
+    res.status(201).json(newPost);
+  } catch (error) {
+    res.status(500).json({ error: 'Could not create the post' });
+  }
+});
 
-  const collection = db.collection("posts");
-  let result = await collection.deleteOne(query);
+// PATCH (update) a post by ID
+router.patch('/:id', async (req, res) => {
+  try {
+    const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+    res.json(post);
+  } catch (error) {
+    res.status(500).json({ error: 'Could not update the post' });
+  }
+});
 
-  res.send(result).status(200);
+// DELETE a post by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const post = await Post.findByIdAndDelete(req.params.id);
+    if (!post) return res.status(404).json({ error: 'Post not found' });
+    res.json({ message: 'Post deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ error: 'Could not delete the post' });
+  }
 });
 
 export default router;

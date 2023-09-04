@@ -1,8 +1,8 @@
-import express from "express";
+import express from 'express';
 import mongoose from 'mongoose';
-import cors from "cors";
-import "./loadEnvironment.mjs";
-import posts from "./routes/post.mjs";
+import cors from 'cors';
+import './loadEnvironment.mjs';
+import posts from './routes/post.mjs';
 import authRoutes from './routes/auth.mjs';
 import protectedRoutes from './routes/protected.mjs';
 
@@ -19,8 +19,25 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
-app.use("/api/v1/posts", posts);
+app.use('/api/v1/posts', posts);
 
-app.listen(PORT, () => {
-  console.log(`📡 Server is running on port: ${PORT}`);
-});
+const startApp = () => {
+  app.listen(PORT, () => {
+    console.log(`📡 Server is running on port: ${PORT}`);
+  });
+};
+
+mongoose.connect(
+  process.env.MONGODB_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (error) => {
+    if (error) {
+      console.error('MongoDB connection error:', error);
+    } else {
+      startApp();
+    }
+  }
+);

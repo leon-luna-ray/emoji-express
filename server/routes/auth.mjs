@@ -10,7 +10,7 @@ router.post('/register', async (req, res) => {
     const { email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ email, password: hashedPassword });
-    console.log(user)
+
     await user.save();
     res.json({ message: 'User registered successfully' });
   } catch (error) {
@@ -34,7 +34,6 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Authentication failed' });
     }
 
-    // Generate a JWT token upon successful login
     const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY, {
       expiresIn: '1h',
     });
