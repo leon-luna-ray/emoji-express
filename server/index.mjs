@@ -6,13 +6,19 @@ import posts from './routes/post.mjs';
 import authRoutes from './routes/auth.mjs';
 import protectedRoutes from './routes/protected.mjs';
 
-const PORT = process.env.PORT || 5050;
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const PORT = process.env.PORT || 8080;
+
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
 
 app.use(cors());
 app.use(express.json());
@@ -27,17 +33,6 @@ const startApp = () => {
   });
 };
 
-mongoose.connect(
-  process.env.MONGODB_URI,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (error) => {
-    if (error) {
-      console.error('MongoDB connection error:', error);
-    } else {
-      startApp();
-    }
-  }
-);
+connectDB().then(() => {
+  startApp();
+});
