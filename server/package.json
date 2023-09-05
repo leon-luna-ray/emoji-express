@@ -8,7 +8,7 @@
   "type": "module",
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.mjs",
+    "start": "node .",
     "dev": "nodemon index.mjs"
   },
   "author": "Ray Luna",
