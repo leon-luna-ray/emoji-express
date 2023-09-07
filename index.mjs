@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import path from 'path';
 import './loadEnvironment.mjs';
 import posts from './routes/post.mjs';
 import authRoutes from './routes/auth.mjs';
@@ -27,6 +28,14 @@ app.use('/auth', authRoutes);
 app.use('/protected', protectedRoutes);
 app.use('/api/v1/posts', posts);
 
+// if(process.env.ENV === 'prod'){
+
+// }
+app.use(express.static("./client/build"));
+app.get("*", (req, res)=>{
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+})
+
 const startApp = () => {
   app.listen(PORT, () => {
     console.log(`📡 Server is running on port: ${PORT}`);
@@ -36,3 +45,4 @@ const startApp = () => {
 connectDB().then(() => {
   startApp();
 });
+
