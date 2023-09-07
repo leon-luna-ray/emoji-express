@@ -1,5 +1,5 @@
 import express from 'express';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.mjs';
 
@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ email, password: hashedPassword });
 
     await user.save();
@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Authentication failed' });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    // const isPasswordValid = await bcrypt.compare(password, user.password);
 
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Authentication failed' });
