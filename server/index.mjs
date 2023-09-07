@@ -11,8 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const connectDB = async () => {
+  console.log('connect')
   try {
-    const conn = await mongoose.connect(process.env.MY_MONGO_URL);
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.log(error);
