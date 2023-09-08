@@ -2,9 +2,11 @@
 
 ## Description
 
-A mood tracking app using emojis. The app will let the user click on how they're feeling and store a record of each emoji in the user's local storage. More features to come!
+A mood tracking app using emojis. The app will let the user click on how they're feeling and store a record of each emoji.
 
-[🚀 https://emoji-tracker.netlify.app/](https://emoji-tracker.netlify.app/)
+This project is currently being refactored as a MERN stack application.
+
+[🚀 https://emoji-tracker.onrender.com/](https://emoji-tracker.onrender.com/)
 
 ## Table of Contents
 
@@ -22,22 +24,12 @@ A mood tracking app using emojis. The app will let the user click on how they're
 
 ## Technologies
 
-- HTML
-- CSS
-- Javascript
-- React.js
-- Node.js
-- Bootstrap
-
-## Known-Bugs
-
-## Next-Steps
-
-- Show posts for the past week
-- Full stack app
-- Connect to a database
-- User Authentication
-- Graphs/metrics
+JavaScript
+Express.js
+Node.js
+MongoDB
+React.js
+Render
 
 ## License
 
@@ -55,6 +47,6 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 ## Links
 
-- [Deployed Project](https://emojitracker.app)
+- [Deployed Project](https://emoji-tracker.onrender.com/)
 
-- [Project Repository](https://github.com/leon-luna-ray/emoji-tracker)
+- [Project Repository](https://github.com/leon-luna-ray/emoji-tracker/)
