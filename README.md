@@ -1,4 +1,4 @@
-# Emoji Tracker
+# Emoji Express
 
 ## Description
 
@@ -18,9 +18,6 @@ This project is currently being refactored as a MERN stack application.
 - [Contact](#contact)
 - [Links](#links)
 
-## Image
-
-![Screenshot](./public/assets/emoji-tracker.png)
 
 ## Technologies
 
@@ -55,4 +52,4 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 - [Deployed Project](https://emoji-express.fly.dev/)
 
-- [Project Repository](https://github.com/leon-luna-ray/emoji-tracker/)
+- [Project Repository](https://github.com/leon-luna-ray/emoji-express/)
