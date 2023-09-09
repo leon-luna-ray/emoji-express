@@ -6,7 +6,7 @@ A mood tracking app using emojis. The app will let the user click on how they're
 
 This project is currently being refactored as a MERN stack application.
 
-[🚀 https://emoji-tracker.onrender.com/](https://emoji-tracker.onrender.com/)
+[🚀 https://emoji-express.fly.dev/](https://emoji-express.fly.dev/)
 
 ## Table of Contents
 
@@ -24,12 +24,18 @@ This project is currently being refactored as a MERN stack application.
 
 ## Technologies
 
+### Backend
 - JavaScript
 - Express.js
+- Fly.io
 - Node.js
 - MongoDB
+
+### Frontend
 - React.js
-- Render
+- HTML5
+- CSS3
+- Vite.js
 
 ## License
 
@@ -47,6 +53,6 @@ If you have any questions about the repo, open an issue or contact me directly a
 
 ## Links
 
-- [Deployed Project](https://emoji-tracker.onrender.com/)
+- [Deployed Project](https://emoji-express.fly.dev/)
 
 - [Project Repository](https://github.com/leon-luna-ray/emoji-tracker/)
