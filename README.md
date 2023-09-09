@@ -24,12 +24,12 @@ This project is currently being refactored as a MERN stack application.
 
 ## Technologies
 
-JavaScript
-Express.js
-Node.js
-MongoDB
-React.js
-Render
+- JavaScript
+- Express.js
+- Node.js
+- MongoDB
+- React.js
+- Render
 
 ## License
 
