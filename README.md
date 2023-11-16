@@ -29,9 +29,9 @@ This project is currently being refactored as a MERN stack application.
 - MongoDB
 
 ### Frontend
-- React.js
-- HTML5
 - CSS3
+- HTML5
+- React.js
 - Vite.js
 
 ## License

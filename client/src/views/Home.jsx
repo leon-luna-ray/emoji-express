@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-// import { fetchPosts, createPost } from '../lib/api'
+import { fetchPosts, createPost } from '../lib/api'
 // Temp use local storage
-import { fetchPosts, createPost } from '../lib/localStorage'
+// import { fetchPosts, createPost } from '../lib/localStorage'
 
 import { Container, Row, Col } from 'react-bootstrap';
 import EmojiGrid from '../components/EmojiGrid';
@@ -18,9 +18,10 @@ const EmojiTracker = () => {
   // Methods
   const fetchData = async () => {
     const result = await fetchPosts();
-    // setPosts(result?.data.reverse());
+    console.log(result)
+    setPosts(result?.data.reverse());
     // Temp use local storage
-    setPosts(result?.reverse());
+    // setPosts(result?.reverse());
   };
   const savePost = async () => {
     const newPost = {

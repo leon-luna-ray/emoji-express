@@ -18,7 +18,11 @@ const PORT = process.env.PORT || 8080;
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      dbName: 'emoji_tracker',
+    });
     console.log(`📀 MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.log(error);
@@ -37,7 +41,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-// connectDB()
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`📡 Server is running on port: ${PORT}`);

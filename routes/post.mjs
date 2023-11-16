@@ -7,6 +7,7 @@ const router = express.Router();
 // GET all posts
 router.get('/', async (req, res) => {
   try {
+    console.log('🚵‍♀️ FETCHING POSTS')
     const posts = await Post.find();
     res.json(posts);
   } catch (error) {
@@ -28,6 +29,7 @@ router.get('/:id', async (req, res) => {
 // POST a new post
 router.post('/', async (req, res) => {
   try {
+    console.log('🧍‍♀️ CREATE POST')
     const newPost = new Post(req.body);
     await newPost.save();
     res.status(201).json(newPost);
