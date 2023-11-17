@@ -25,3 +25,31 @@ body.dark-mode {
 .post-emoji {
   font-size: 3rem;
 }
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 4rem;
+}
+
+.logo-text {
+  font-family: 'Sacramento', cursive;
+  font-weight: 600;
+}
