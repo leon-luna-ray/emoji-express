@@ -10,14 +10,14 @@ import './styles/index.css'
 
 const App = () => {
   return (
-    <div className='App'>
+    <main>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
       </Routes>
-    </div>
+    </main>
   );
 };
 
