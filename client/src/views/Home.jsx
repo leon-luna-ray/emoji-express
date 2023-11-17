@@ -18,7 +18,6 @@ const EmojiTracker = () => {
   // Methods
   const fetchData = async () => {
     const result = await fetchPosts();
-    console.log(result)
     setPosts(result?.data.reverse());
     // Temp use local storage
     // setPosts(result?.reverse());
@@ -26,7 +25,6 @@ const EmojiTracker = () => {
   const savePost = async () => {
     const newPost = {
       createdAt: new Date(),
-      _id: uuidv4(),
       name: currentEmoji.name,
       secondary: currentEmoji.secondary,
       type: currentEmoji.type,
