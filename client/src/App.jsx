@@ -1,9 +1,12 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
+
 import Home from './views/Home';
 import Dashboard from './views/Dashboard';
 import Login from './views/Login';
 import Signup from './views/Signup';
+
+import './styles/index.css'
 
 const App = () => {
   return (
