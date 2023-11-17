@@ -1,15 +1,19 @@
 import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom"
 import Home from './views/Home';
+import Dashboard from './views/Dashboard';
+import Login from './views/Login';
+import Signup from './views/Signup';
 
 const App = () => {
   return (
     <div className='App'>
-      <Router>
-        <Switch>
-          <Route path='/' exact component={Home} />
-        </Switch>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+      </Routes>
     </div>
   );
 };

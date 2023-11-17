@@ -21,18 +21,18 @@ This project is currently being refactored as a MERN stack application.
 
 ## Technologies
 
-### Backend
+### Frontend
 - JavaScript
+- React.js
+- CSS3
+- HTML5
+- Vite.js
+
+### Backend
 - Express.js
 - Fly.io
 - Node.js
 - MongoDB
-
-### Frontend
-- CSS3
-- HTML5
-- React.js
-- Vite.js
 
 ## License
 
