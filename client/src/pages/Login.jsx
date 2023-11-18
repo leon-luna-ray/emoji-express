@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../lib/api';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -14,10 +17,21 @@ const Login = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Email:', formData.email);
+
+        try {
+            const response = await loginUser(formData);
+            const { token } = response.data;
+
+            localStorage.setItem('token', token);
+
+            navigate('/dashboard');
+        } catch (error) {
+            alert(error.response?.data?.error || 'Login failed');
+        }
     };
+
     return (
         <div className='flex justify-center items-center md:pt-[6rem]'>
             <div className="w-full md:w-max bg-yellow-400 text-black md:min-w-[30rem] flex-col-1 p-[4rem] md:rounded-md">

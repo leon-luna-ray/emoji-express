@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const baseURL = import.meta.env.VITE_BASE_API_URL;
 
+// Posts
 export const fetchPosts = async () => {
   try {
     const response = await axios.get(`${baseURL}/posts`);
@@ -22,10 +23,19 @@ export const createPost = async (newPost) => {
   }
 };
 
-
+// Auth
 export const createNewUser = async (data) => {
   try {
       const response = await axios.post(`${baseURL}/auth/register`, data);
+
+      return response;
+  } catch (error) {
+      throw error;
+  }
+};
+export const loginUser = async (data) => {
+  try {
+      const response = await axios.post(`${baseURL}/auth/login`, data);
 
       return response;
   } catch (error) {
