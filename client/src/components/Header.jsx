@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <header className='py-[1rem] fixed top-0 w-full'>
+    <header className='py-[1rem] sticky top-0 w-full'>
       <div className='container flex justify-between items-center'>
         <Link to='/'>
           <span id="logo">EmojiExpress</span>

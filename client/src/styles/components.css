@@ -9,6 +9,6 @@
     @apply hover:text-inherit;
   }
   .btn.red {
-    @apply bg-red-500 text-white min-w-[6rem];
+    @apply bg-red-500 text-white;
   }
 }

@@ -25,7 +25,7 @@
   }
 
   body {
-    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4 mt-[80px] md:mt-[104px];
+    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4 ;
   }
   a {
     @apply hover:text-inherit;
