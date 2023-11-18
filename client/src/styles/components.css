@@ -2,7 +2,7 @@
 
 @layer components {
   #logo {
-    @apply text-[2rem] md:text-[3rem] font-[600] font-sacramento;
+    @apply text-[2rem] md:text-[3rem] font-[500] font-sacramento;
   }
 
   .btn a {
