@@ -26,12 +26,13 @@ This project is currently being refactored as a MERN stack application.
 - React.js
 - CSS3
 - HTML5
+- Tailwind CSS
 - Vite.js
 
 ### Backend
 - Express.js
-- Fly.io
 - Node.js
+- Fly.io
 - MongoDB
 
 ## License

@@ -1,5 +1,5 @@
 import React from 'react';
-import emojis from './emojis';
+import emojis from '../lib/emojis';
 import EmojiBtn from './EmojiBtn';
 import MoodBar from './MoodBar';
 import { Col, Row } from 'react-bootstrap';

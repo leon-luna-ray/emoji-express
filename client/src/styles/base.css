@@ -1,11 +1,6 @@
 @tailwind base;
 
 @layer base {
-  body.dark-mode {
-    background-color: #333;
-    color: #fff;
-  }
-
   .emoji-btn {
     text-align: center;
     cursor: pointer;
@@ -30,7 +25,7 @@
   }
 
   body {
-    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4;
+    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4 mt-[80px] md:mt-[104px];
   }
   a {
     @apply hover:text-inherit;
@@ -38,16 +33,22 @@
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5 {
     @apply font-playfair font-[700];
   }
   h1,
   .h1 {
-    @apply text-[4rem];
+    @apply text-[3rem];
   }
   h2,
   .h2 {
-    @apply text-[3rem];
+    @apply text-[2.5rem];
   }
   h3,
   .h3 {
@@ -55,6 +56,10 @@
   }
   h4,
   .h4 {
+    @apply text-[1.5rem];
+  }
+  h5,
+  .h5 {
     @apply text-[1rem];
   }
 }

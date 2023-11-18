@@ -11,7 +11,7 @@ import './styles/index.css'
 
 const App = () => {
   return (
-    <>
+    <div id="react-app" className='relative'>
       <Header />
       <main>
         <Routes>
@@ -21,7 +21,7 @@ const App = () => {
           <Route path="signup" element={<Signup />} />
         </Routes>
       </main>
-    </>
+    </div>
   );
 };
 
