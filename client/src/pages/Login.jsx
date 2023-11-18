@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../lib/api';
+import { useAuth } from '../contexts/AuthContext';
 
 const Login = () => {
     const navigate = useNavigate();
+    const { logIn } = useAuth();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -25,6 +27,7 @@ const Login = () => {
             const { token } = response.data;
 
             localStorage.setItem('token', token);
+            logIn();
 
             navigate('/dashboard');
         } catch (error) {

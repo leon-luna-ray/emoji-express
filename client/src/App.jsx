@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
 
+import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,20 +13,22 @@ import './styles/index.css'
 
 const App = () => {
   return (
-    <div id="react-app" className='relative h-screen flex justify-between flex-col'>
-      <div>
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-          </Routes>
-        </main>
+    <AuthProvider>
+      <div id="react-app" className='relative h-screen flex justify-between flex-col'>
+        <div>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<Signup />} />
+            </Routes>
+          </main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </AuthProvider>
   );
 };
 
