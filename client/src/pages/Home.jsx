@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useAuth } from '../contexts/AuthContext';
 
 const HomePage = () => {
     const faceEmojis = [
@@ -12,6 +13,7 @@ const HomePage = () => {
     ];
 
     // State
+    const { isLoggedIn, logOut } = useAuth();
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Lifecycle
@@ -31,16 +33,19 @@ const HomePage = () => {
                 <h2 className='font-sacramento font-light'>Welcome to Emoji Express!</h2>
                 <p>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. 🚀 Whether you're feeling ecstatic, calm, or somewhere in between, Emoji Express lets you effortlessly capture your emotions with just a tap of an emoji. 🎉</p>
                 <div className="flex gap-x-[2rem] justify-center pt-[2rem]">
-                    <Link to='/login'>
-                        <div className="btn red min-w-[6rem]">
-                            Login
-                        </div>
-                    </Link>
-                    <Link to='/signup'>
-                        <div className="btn red min-w-[6rem]">
-                            Signup
-                        </div>
-                    </Link>
+                    {isLoggedIn ?
+                        <Link to='/dashboard'>
+                            <span className="btn red min-w-[6rem]">Go To Dashboard</span>
+                        </Link> :
+                        <>
+                            <Link to='/login'>
+                                <span className="btn red min-w-[6rem]">Login</span>
+                            </Link>
+                            <Link to='/signup'>
+                                <span className="btn red min-w-[6rem]">Signup</span>
+                            </Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>

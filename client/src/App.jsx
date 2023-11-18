@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
 
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,6 +12,7 @@ import Signup from './pages/Signup';
 import './styles/index.css'
 
 const App = () => {
+
   return (
     <AuthProvider>
       <div id="react-app" className='relative h-screen flex justify-between flex-col'>

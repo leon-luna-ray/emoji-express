@@ -7,18 +7,19 @@ const Login = () => {
     const navigate = useNavigate();
     const { logIn } = useAuth();
 
+    // State
     const [formData, setFormData] = useState({
         email: '',
         password: '',
     });
 
+    // Methods
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -34,6 +35,7 @@ const Login = () => {
             alert(error.response?.data?.error || 'Login failed');
         }
     };
+
 
     return (
         <div className='flex justify-center items-center md:pt-[6rem]'>
