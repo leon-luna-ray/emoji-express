@@ -31,12 +31,16 @@ const HomePage = () => {
                 <h2>Welcome to Emoji Express!</h2>
                 <p>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. 🚀 Whether you're feeling ecstatic, calm, or somewhere in between, Emoji Express lets you effortlessly capture your emotions with just a tap of an emoji. 🎉</p>
                 <div className="flex gap-x-[2rem] justify-center pt-[2rem]">
-                    <div className="btn red min-w-[6rem]">
-                        <Link to='/login'>Login</Link>
-                    </div>
-                    <div className="btn red min-w-[6rem]">
-                        <Link to='/signup'>Signup</Link>
-                    </div>
+                    <Link to='/login'>
+                        <div className="btn red min-w-[6rem]">
+                            Login
+                        </div>
+                    </Link>
+                    <Link to='/signup'>
+                        <div className="btn red min-w-[6rem]">
+                            Signup
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
