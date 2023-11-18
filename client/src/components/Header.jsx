@@ -24,12 +24,14 @@ const Header = () => {
                   <Link to='/dashboard' className={isSelected('/dashboard') ? 'underline' : ''}>Dashboard</Link>
                 </li>
                 <li>
-                  <Link onClick={logOut} to='/login'>Logout</Link>
+                  <Link onClick={logOut} to='/login' >Logout</Link>
                 </li>
               </>
               :
               <li>
-                <Link to='/login'>Login</Link>
+                <Link to='/login' className={isSelected('/login') ? 'underline' : ''}>
+                  Login
+                </Link>
               </li>
             }
           </ul>
