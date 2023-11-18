@@ -1,5 +1,5 @@
 import express from 'express';
-// import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.mjs';
 
@@ -8,9 +8,10 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
   try {
     const { email, password } = req.body;
-    // const hashedPassword = await bcrypt.hash(password, 10);
-    // const user = new User({ email, password: hashedPassword });
-    const user = new User({ email, password: password });
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const user = new User({ email, password: hashedPassword });
+    console.log(hashedPassword)
+    // const user = new User({ email, password: password });
 
     await user.save();
     res.json({ message: 'User registered successfully' });

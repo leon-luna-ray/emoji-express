@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Header = () => {
   return (
     <header className='py-[1rem] sticky top-0 w-full'>
       <div className='container flex justify-between items-center'>
@@ -20,4 +20,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Header

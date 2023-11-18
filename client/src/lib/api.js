@@ -12,7 +12,6 @@ export const fetchPosts = async () => {
     throw error;
   }
 };
-
 export const createPost = async (newPost) => {
   try {
     const response = await axios.post(`${baseURL}/posts`, newPost);
