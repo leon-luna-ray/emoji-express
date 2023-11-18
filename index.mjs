@@ -33,16 +33,18 @@ const connectDB = async () => {
 app.use(cors());
 app.use(express.json());
 
-app.use('/auth', authRoutes);
-app.use('/protected', protectedRoutes);
+// Routes
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/protected', protectedRoutes);
 app.use('/api/v1/posts', posts);
+
+// Static
 app.use(express.static('./client/build'));
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-connectDB();
-
 app.listen(PORT, () => {
+  connectDB();
   console.log(`📡 Server is running on port: ${PORT}`);
 });
