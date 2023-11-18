@@ -2,6 +2,6 @@
 
 @layer components {
   #logo {
-    @apply text-[2rem] md:text-[3rem] font-[600] font-sacramento hover:text-black;
+    @apply text-[2rem] md:text-[3rem] font-[600] font-sacramento;
   }
 }

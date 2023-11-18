@@ -29,35 +29,32 @@
     font-size: 3rem;
   }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
   body {
-    font-family: 'Inter', sans-serif;
+    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4;
+  }
+  a {
+    @apply hover:text-inherit;
   }
   h1,
   h2,
   h3,
   h4 {
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
+    @apply font-playfair font-[700];
   }
   h1,
   .h1 {
-    font-size: 4rem;
+    @apply text-[4rem];
   }
   h2,
   .h2 {
-    font-size: 3rem;
+    @apply text-[3rem];
   }
   h3,
   .h3 {
-    font-size: 2rem;
+    @apply text-[2rem];
   }
   h4,
   .h4 {
-    font-size: 4rem;
+    @apply text-[1rem];
   }
 }
