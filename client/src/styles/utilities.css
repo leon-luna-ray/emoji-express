@@ -5,18 +5,10 @@
     @apply border-2 border-red-600;
   }
   .border-green {
-    border: 3px solid green;
+    @apply border-2 border-green-600;
   }
   .border-blue {
-    border: 3px solid blue;
-  }
-  .container {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    max-width: 1200px;
+    @apply border-2 border-blue-600;
   }
   .page-center {
     height: 100vh;

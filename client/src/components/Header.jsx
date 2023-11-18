@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import '../styles/components/Header.css'
 
 const Navbar = () => {
   return (
-    <header>
-      <div className='container'>
+    <header className='py-[1rem]'>
+      <div className='container flex justify-between items-center'>
         <Link to='/'>
           <span id="logo">EmojiExpress</span>
         </Link>
         <nav>
-          <ul>
+          <ul className='flex gap-x-[1rem]'>
             <li>
               <Link to='/login'>Login</Link>
             </li>
