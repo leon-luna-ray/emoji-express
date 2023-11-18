@@ -1,7 +1,7 @@
 import React from 'react';
 import emojis from './emojis';
 import EmojiBtn from './EmojiBtn';
-import Header from './Header';
+import MoodBar from './MoodBar';
 import { Col, Row } from 'react-bootstrap';
 
 const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
@@ -17,7 +17,7 @@ const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
     <div>
       <br />
       <Row>
-        <Header currentEmoji={currentEmoji} />
+        <MoodBar currentEmoji={currentEmoji} />
       </Row>
       <br />
       <Row>{renderEmojiBtns}</Row>

@@ -1,18 +1,24 @@
-import React from 'react';
-// Idea: To show the most recent mood immediately without waiting for the db as delays may cause the user to make multiple clicks?
+import React from 'react'
+import { Link } from "react-router-dom";
+import '../styles/components/Header.css'
 
-const Header = ({ currentEmoji }) => {
-  return currentEmoji ? (
-    <div className='title centered'>
-      <h1>
-        Today I feel {currentEmoji.name} {currentEmoji.emoji}
-      </h1>
-    </div>
-  ) : (
-    <div className='title centered'>
-      <h1>Today I feel...</h1>
-    </div>
-  );
-};
+const Navbar = () => {
+  return (
+    <header>
+      <div className='container'>
+        <Link to='/'>
+          <span id="logo">EmojiExpress</span>
+        </Link>
+        <nav>
+          <ul>
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  )
+}
 
-export default Header;
+export default Navbar

@@ -1,0 +1,31 @@
+#logo {
+  font-size: 3rem;
+  font-family: 'Sacramento', cursive;
+  font-weight: 600;
+}
+#logo:hover {
+    color: black;
+}
+
+@media (max-width: 767px) {
+  #logo {
+    font-size: 2rem;
+  }
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 1rem;
+  height: 100%;
+}
+nav ul li {
+  list-style: none;
+}

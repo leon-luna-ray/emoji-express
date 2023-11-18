@@ -1,55 +1,63 @@
-body.dark-mode {
-  background-color: #333;
-  color: #fff;
-}
+@tailwind base;
 
-.emoji-btn {
-  text-align: center;
-  cursor: pointer;
-}
+@layer base {
+  body.dark-mode {
+    background-color: #333;
+    color: #fff;
+  }
 
-.title {
-  text-align: center;
-}
+  .emoji-btn {
+    text-align: center;
+    cursor: pointer;
+  }
 
-.dark-mode-btn:hover {
-  cursor: pointer;
-}
+  .title {
+    text-align: center;
+  }
 
-.user-post-card {
-  border: 2px solid whitesmoke;
-  border-radius: 4px;
-  padding: 1rem;
-}
+  .dark-mode-btn:hover {
+    cursor: pointer;
+  }
 
-.post-emoji {
-  font-size: 3rem;
-}
+  .user-post-card {
+    border: 2px solid whitesmoke;
+    border-radius: 4px;
+    padding: 1rem;
+  }
 
-body {
-  font-family: 'Inter', sans-serif;
-}
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 700;
-  font-family: 'Playfair Display', serif;
-}
-h1 {
-  font-size: 4rem;
-}
-h2 {
-  font-size: 3rem;
-}
-h3 {
-  font-size: 2rem;
-}
-h4 {
-  font-size: 4rem;
-}
+  .post-emoji {
+    font-size: 3rem;
+  }
 
-.logo-text {
-  font-family: 'Sacramento', cursive;
-  font-weight: 600;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+  h1,
+  .h1 {
+    font-size: 4rem;
+  }
+  h2,
+  .h2 {
+    font-size: 3rem;
+  }
+  h3,
+  .h3 {
+    font-size: 2rem;
+  }
+  h4,
+  .h4 {
+    font-size: 4rem;
+  }
 }
