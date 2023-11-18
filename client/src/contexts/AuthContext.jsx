@@ -4,9 +4,11 @@ import { jwtDecode } from "jwt-decode";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  // State
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
+  // Methods
   const logIn = (token) => {
     try {
       const decodedToken = jwtDecode(token);
@@ -20,14 +22,13 @@ export const AuthProvider = ({ children }) => {
       console.error('Error decoding token:', error);
     }
   };
-
   const logOut = () => {
     localStorage.removeItem('token');
     setUser(null);
     setLoggedIn(false);
   };
 
-
+  // Lifecycle
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {

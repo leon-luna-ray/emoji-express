@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { fetchPosts, createPost } from '../lib/api'
+import { useAuth } from '../contexts/AuthContext'
+
 // Temp use local storage
 // import { fetchPosts, createPost } from '../lib/localStorage'
 
@@ -12,6 +13,7 @@ import '../styles/index.css';
 
 const Dasboard = () => {
   // State
+  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const [currentEmoji, setCurrentEmoji] = useState(null);
 
@@ -24,6 +26,7 @@ const Dasboard = () => {
   };
   const savePost = async () => {
     const newPost = {
+      userId: user.id,
       createdAt: new Date(),
       name: currentEmoji.name,
       secondary: currentEmoji.secondary,
@@ -31,6 +34,7 @@ const Dasboard = () => {
       level: currentEmoji.level,
       emoji: currentEmoji.emoji,
     };
+    console.log(newPost)
     await createPost(newPost);
     await fetchData();
   };
