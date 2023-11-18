@@ -5,41 +5,39 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [userId, setUserId] = useState(null);
-  const [userEmail, setUserEmail] = useState(null);
+  const [user, setUser] = useState(null);
 
-  const logIn = () => {
-    setLoggedIn(true);
-  };
-
-  const logOut = () => {
-    localStorage.removeItem('token');
-    setLoggedIn(false);
-    setUserId(null);
-  };
-
-  const getUserDetails = (token) => {
+  const logIn = (token) => {
     try {
       const decodedToken = jwtDecode(token);
 
-      setUserId(decodedToken.userId);
-      setUserEmail(decodedToken.email);
+      setUser({
+        id: decodedToken.userId,
+        email: decodedToken.email,
+      });
+      setLoggedIn(true);
     } catch (error) {
       console.error('Error decoding token:', error);
     }
   };
 
+  const logOut = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+    setLoggedIn(false);
+  };
+
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setLoggedIn(true);
-      getUserDetails(token);
+      logIn(token);
     }
   }, []);
 
 
   return (
-    <AuthContext.Provider value={{ logIn, logOut, isLoggedIn, userId, userEmail, }}>
+    <AuthContext.Provider value={{ logIn, logOut, isLoggedIn, user, }}>
       {children}
     </AuthContext.Provider>
   );

@@ -28,7 +28,7 @@ const Login = () => {
             const { token } = response.data;
 
             localStorage.setItem('token', token);
-            logIn();
+            logIn(token);
 
             navigate('/dashboard');
         } catch (error) {
