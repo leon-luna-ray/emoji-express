@@ -21,3 +21,14 @@ export const createPost = async (newPost) => {
     throw error;
   }
 };
+
+
+export const createNewUser = async (data) => {
+  try {
+      const response = await axios.post(`${baseURL}/auth/register`, data);
+
+      return response;
+  } catch (error) {
+      throw error;
+  }
+};
