@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
     const faceEmojis = [
@@ -10,8 +11,10 @@ const HomePage = () => {
         '🤗', '🤭', '🥳', '🥺', '🤤', '🤢', '🤮', '🤫',
     ];
 
+    // State
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // Lifecycle
     useEffect(() => {
         const updateIndex = () => {
             const randomIndex = Math.floor(Math.random() * faceEmojis.length);
@@ -28,8 +31,12 @@ const HomePage = () => {
                 <h2>Welcome to Emoji Express!</h2>
                 <p>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. 🚀 Whether you're feeling ecstatic, calm, or somewhere in between, Emoji Express lets you effortlessly capture your emotions with just a tap of an emoji. 🎉</p>
                 <div className="flex gap-x-[2rem] justify-center pt-[2rem]">
-                    <div className="btn">Login</div>
-                    <div className="btn">Signup</div>
+                    <div className="btn red">
+                        <Link to='/login'>Login</Link>
+                    </div>
+                    <div className="btn red">
+                        <Link to='/signup'>Signup</Link>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,4 +4,11 @@
   #logo {
     @apply text-[2rem] md:text-[3rem] font-[600] font-sacramento;
   }
+
+  .btn a {
+    @apply hover:text-inherit;
+  }
+  .btn.red {
+    @apply bg-red-500 text-white min-w-[6rem];
+  }
 }
