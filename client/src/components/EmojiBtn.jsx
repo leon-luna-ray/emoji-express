@@ -5,7 +5,7 @@ const EmojiBtn = ({ emoji, setCurrentEmoji }) => {
     <div
       id={emoji.name}
       name={emoji.name}
-      className='emoji-btn'
+      className='text-center hover:cursor-pointer'
       onClick={() => {
         setCurrentEmoji(emoji);
       }}

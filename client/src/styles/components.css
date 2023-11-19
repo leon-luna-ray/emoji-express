@@ -11,4 +11,8 @@
   .btn.red {
     @apply bg-red-500 text-white;
   }
+
+  header nav a {
+    @apply hover:text-yellow-400;
+  }
 }

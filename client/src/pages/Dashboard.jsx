@@ -3,14 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { fetchPosts, createPost } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
 
-// Temp use local storage
-// import { fetchPosts, createPost } from '../lib/localStorage'
-
-import { Container, Row, Col } from 'react-bootstrap';
 import EmojiGrid from '../components/EmojiGrid';
 import UserPosts from '../components/UserPosts';
-import DarkModeBtn from '../components/DarkModeBtn';
-import '../styles/index.css';
+// import DarkModeBtn from '../components/DarkModeBtn';
 
 const Dasboard = () => {
   const navigate = useNavigate();
@@ -92,26 +87,12 @@ const Dasboard = () => {
   }
 
   return (
-    <Container>
-      <Row>
-        <Col className='d-flex justify-content-end'>
-          <DarkModeBtn />
-        </Col>
-      </Row>
-      <Row>
-        {
-          posts ? <EmojiGrid
-            currentEmoji={currentEmoji}
-            setCurrentEmoji={setCurrentEmoji}
-          /> : ''
-        }
-      </Row>
-      <br />
-      <br />
-      <Row>
-        <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} />
-      </Row>
-    </Container>
+    <div className='container flex-col-4'>
+      <EmojiGrid currentEmoji={currentEmoji} setCurrentEmoji={setCurrentEmoji} />
+      <div className='grid grid-cols-2 md:grid-cols-4'>
+        {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} /> : ''}
+      </div>
+    </div>
   );
 };
 
