@@ -4,7 +4,8 @@
 
 A mood tracking app using emojis. The app will let the user click on how they're feeling and store a record of each emoji.
 
-This project is currently being refactored as a MERN stack application.
+This is a full-stack MERN application with user authentication. Users can create an account to store and view their posts from anywhere.
+
 
 [🚀 https://emoji-express.fly.dev/](https://emoji-express.fly.dev/)
 
@@ -34,6 +35,10 @@ This project is currently being refactored as a MERN stack application.
 - Node.js
 - Fly.io
 - MongoDB
+
+### Images
+![Screenshot 1](./client/assets/ee1.png)
+![Screenshot 1](./client/assets/ee2.png)
 
 ## License
 
