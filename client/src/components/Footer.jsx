@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer>
         <div className="container py-[2rem] text-center text-[0.875rem] font-[200] flex-col flex">
-            <span>🚧 This app in in development 🚧</span>
             <span>© {year} <a href="https://www.rayluna.dev/" target="_blank" className='underline'>Ray Luna</a></span>
         </div>
     </footer>
