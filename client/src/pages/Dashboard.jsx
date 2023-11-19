@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { fetchPosts, createPost } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -12,15 +13,16 @@ import DarkModeBtn from '../components/DarkModeBtn';
 import '../styles/index.css';
 
 const Dasboard = () => {
+  const navigate = useNavigate();
+
   // State
-  const { user } = useAuth();
+  const { user, isLoggedIn, logIn } = useAuth();
   const [posts, setPosts] = useState([]);
   const [currentEmoji, setCurrentEmoji] = useState(null);
 
   // Methods
   const fetchUserPosts = async () => {
     try {
-      console.log(user)
       const result = await fetchPosts(user?.id);
       setPosts(result?.data.reverse());
     } catch (error) {
@@ -74,11 +76,20 @@ const Dasboard = () => {
 
   // Lifecycle
   useEffect(() => {
-    if(user){
-      console.log(user)
+    const storedToken = localStorage.getItem('token');
+
+    if (storedToken) {
+      logIn(storedToken);
+      fetchUserPosts();
     }
-    fetchUserPosts();
+    else if (!user || !isLoggedIn) {
+      navigate('/login')
+    }
   }, []);
+
+  if (!user || !isLoggedIn) {
+    return null;
+  }
 
   return (
     <Container>
