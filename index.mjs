@@ -14,7 +14,7 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8090;
 
 const connectDB = async () => {
   try {

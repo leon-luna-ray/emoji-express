@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { fetchPosts, createPost } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -13,17 +12,16 @@ import DarkModeBtn from '../components/DarkModeBtn';
 import '../styles/index.css';
 
 const Dasboard = () => {
-  const navigate = useNavigate();
-
   // State
-  const { user, isLoggedIn } = useAuth();
+  const { user } = useAuth();
   const [posts, setPosts] = useState([]);
   const [currentEmoji, setCurrentEmoji] = useState(null);
 
   // Methods
   const fetchUserPosts = async () => {
     try {
-      const result = await fetchPosts(user.id, token);
+      console.log(user)
+      const result = await fetchPosts(user?.id);
       setPosts(result?.data.reverse());
     } catch (error) {
       console.error('Error fetching posts:', error.message);
@@ -41,8 +39,8 @@ const Dasboard = () => {
         level: currentEmoji.level,
         emoji: currentEmoji.emoji,
       };
-      await createPost(newPost, token);
-      await fetchUserPosts();
+      createPost(newPost);
+      fetchUserPosts();
     } catch (error) {
       console.error('Error saving post:', error.message);
     }
@@ -66,20 +64,21 @@ const Dasboard = () => {
     };
   };
 
+  // Watchers
+  useEffect(() => {
+    if (currentEmoji) {
+      savePost();
+    }
+    return;
+  }, [currentEmoji]);
+
   // Lifecycle
   useEffect(() => {
-    if (!isLoggedIn || !user) {
-      navigate('/login');
-    } else if (currentEmoji) {
-      savePost();
-    } else {
-      fetchUserPosts();
+    if(user){
+      console.log(user)
     }
-  }, [currentEmoji, user, isLoggedIn, navigate]);
-
-  if (!isLoggedIn || !user) {
-    return null;
-  }
+    fetchUserPosts();
+  }, []);
 
   return (
     <Container>

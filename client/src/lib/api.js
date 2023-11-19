@@ -2,24 +2,10 @@ import axios from 'axios';
 
 const baseURL = import.meta.env.VITE_BASE_API_URL;
 
-const axiosInstance = axios.create({
-  baseURL,
-});
-
-const setAuthToken = (token) => {
-  if (token) {
-    axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  } else {
-    delete axiosInstance.defaults.headers.common['Authorization'];
-  }
-};
-
 // Posts
-export const fetchPosts = async (userId, token) => {
+export const fetchPosts = async (userId) => {
   try {
-    setAuthToken(token);
-
-    const response = await axiosInstance.get('/posts', {
+    const response = await axios.get(`${baseURL}/posts`, {
       params: {
         userId: userId,
       },
@@ -30,12 +16,9 @@ export const fetchPosts = async (userId, token) => {
     throw error;
   }
 };
-
-export const createPost = async (newPost, token) => {
+export const createPost = async (newPost) => {
   try {
-    setAuthToken(token);
-
-    const response = await axiosInstance.post('/posts', newPost);
+    const response = await axios.post(`${baseURL}/posts`, newPost);
     return response;
   } catch (error) {
     console.error('Error creating post:', error);
@@ -46,18 +29,19 @@ export const createPost = async (newPost, token) => {
 // Auth
 export const createNewUser = async (data) => {
   try {
-    const response = await axiosInstance.post('/auth/register', data);
-    return response;
+      const response = await axios.post(`${baseURL}/auth/register`, data);
+
+      return response;
   } catch (error) {
-    throw error;
+      throw error;
   }
 };
-
 export const loginUser = async (data) => {
   try {
-    const response = await axiosInstance.post('/auth/login', data);
-    return response;
+      const response = await axios.post(`${baseURL}/auth/login`, data);
+
+      return response;
   } catch (error) {
-    throw error;
+      throw error;
   }
 };
