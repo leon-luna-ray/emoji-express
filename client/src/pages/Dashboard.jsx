@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { fetchPosts, createPost } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
 
@@ -12,6 +13,8 @@ import DarkModeBtn from '../components/DarkModeBtn';
 import '../styles/index.css';
 
 const Dasboard = () => {
+  const navigate = useNavigate();
+
   // State
   const { user, isLoggedIn } = useAuth();
   const [posts, setPosts] = useState([]);
@@ -65,16 +68,18 @@ const Dasboard = () => {
 
   // Lifecycle
   useEffect(() => {
-    if (currentEmoji) {
+    if (!isLoggedIn || !user) {
+      navigate('/login');
+    } else if (currentEmoji) {
       savePost();
-    }
-    return;
-  }, [currentEmoji]);
-  useEffect(() => {
-    if (user) {
+    } else {
       fetchUserPosts();
     }
-  }, [user]);
+  }, [currentEmoji, user, isLoggedIn, navigate]);
+
+  if (!isLoggedIn || !user) {
+    return null;
+  }
 
   return (
     <Container>
