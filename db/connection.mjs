@@ -1,16 +1,17 @@
 import { MongoClient } from "mongodb";
 
-const connectionString = process.env.MY_MONGO_URL || "";
+const connectionString = process.env.MONGODB_URI || "";
 
-const client = new MongoClient(connectionString);
+const client = new MongoClient(connectionString, { useUnifiedTopology: true });
 
 let conn;
 try {
   conn = await client.connect();
-} catch(e) {
-  console.error(e);
+  console.log("Connected to MongoDB");
+} catch (e) {
+  console.error("Error connecting to MongoDB:", e);
 }
 
-let db = conn.db("emoji-tracker");
+const db = conn.db("emoji-tracker");
 
 export default db;

@@ -6,7 +6,7 @@ const DarkModeBtn = () => {
 
   return (
     <div
-      className='dark-mode-btn'
+      className='hoer:cursor-pointer'
       onClick={() => setDarkMode((prevDarkMode) => !prevDarkMode)}
       style={{
         background: darkMode ? '#333' : '#fff',

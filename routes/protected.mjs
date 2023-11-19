@@ -5,7 +5,7 @@ const router = express.Router();
 
 // Protected route
 router.get('/protected', authMiddleware, (req, res) => {
-  // ... (same code as in the previous example)
+
 });
 
 export default router;

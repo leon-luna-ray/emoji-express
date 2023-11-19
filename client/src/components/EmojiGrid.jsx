@@ -1,26 +1,17 @@
 import React from 'react';
-import emojis from './emojis';
+import emojis from '../lib/emojis';
 import EmojiBtn from './EmojiBtn';
-import Header from './Header';
-import { Col, Row } from 'react-bootstrap';
+import MoodBar from './MoodBar';
 
 const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
   const renderEmojiBtns = emojis.map((emoji, index) => {
-    return (
-      <Col key={index} xs={4} md={3} lg={2}>
-        <EmojiBtn key={index} emoji={emoji} setCurrentEmoji={setCurrentEmoji} />
-      </Col>
-    );
+    return <EmojiBtn key={index} emoji={emoji} setCurrentEmoji={setCurrentEmoji} />
   });
 
   return (
-    <div>
-      <br />
-      <Row>
-        <Header currentEmoji={currentEmoji} />
-      </Row>
-      <br />
-      <Row>{renderEmojiBtns}</Row>
+    <div className='flex-col-2'>
+      <MoodBar currentEmoji={currentEmoji} />
+      <div className='grid grid-cols-4 md:grid-cols-6'>{renderEmojiBtns}</div>
     </div>
   );
 };

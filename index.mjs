@@ -14,11 +14,15 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8090;
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      dbName: 'emoji_express',
+    });
     console.log(`📀 MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.log(error);
@@ -29,16 +33,18 @@ const connectDB = async () => {
 app.use(cors());
 app.use(express.json());
 
-app.use('/auth', authRoutes);
-app.use('/protected', protectedRoutes);
+// Routes
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/protected', protectedRoutes);
 app.use('/api/v1/posts', posts);
+
+// Static
 app.use(express.static('./client/build'));
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-// connectDB()
-
 app.listen(PORT, () => {
+  connectDB();
   console.log(`📡 Server is running on port: ${PORT}`);
 });
