@@ -23,7 +23,7 @@ const Dasboard = () => {
   // Methods
   const fetchUserPosts = async () => {
     try {
-      const result = await fetchPosts(user.id);
+      const result = await fetchPosts(user.id, token);
       setPosts(result?.data.reverse());
     } catch (error) {
       console.error('Error fetching posts:', error.message);
@@ -41,7 +41,7 @@ const Dasboard = () => {
         level: currentEmoji.level,
         emoji: currentEmoji.emoji,
       };
-      await createPost(newPost);
+      await createPost(newPost, token);
       await fetchUserPosts();
     } catch (error) {
       console.error('Error saving post:', error.message);

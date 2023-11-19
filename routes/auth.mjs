@@ -43,12 +43,21 @@ router.post('/login', async (req, res) => {
       expiresIn: '1h',
     });
 
+    // Set the token as a cookie
+    res.cookie('authToken', token, {
+      maxAge: 3600000, // 1 hour
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Set to true in production if using HTTPS
+      sameSite: 'None', // or 'Lax' or 'Strict' based on your requirements
+    });
+
     res.json({ token });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ error: 'Login failed' });
   }
 });
+
 
 
 export default router;

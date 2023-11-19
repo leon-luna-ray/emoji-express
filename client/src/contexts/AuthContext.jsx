@@ -1,14 +1,14 @@
+// AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // State
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('token') || null);
 
-  // Methods
   const logIn = (token) => {
     try {
       const decodedToken = jwtDecode(token);
@@ -17,28 +17,38 @@ export const AuthProvider = ({ children }) => {
         id: decodedToken.userId,
         email: decodedToken.email,
       });
+      setToken(token);
       setLoggedIn(true);
+      localStorage.setItem('token', token);
     } catch (error) {
       console.error('Error decoding token:', error);
     }
   };
+
   const logOut = () => {
     localStorage.removeItem('token');
     setUser(null);
     setLoggedIn(false);
+    setToken(null);
   };
 
-  // Lifecycle
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      logIn(token);
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      logIn(storedToken);
     }
   }, []);
 
+  const authContextValue = {
+    logIn,
+    logOut,
+    isLoggedIn,
+    user,
+    token,
+  };
 
   return (
-    <AuthContext.Provider value={{ logIn, logOut, isLoggedIn, user, }}>
+    <AuthContext.Provider value={authContextValue}>
       {children}
     </AuthContext.Provider>
   );
