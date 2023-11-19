@@ -2,7 +2,10 @@
 
 @layer base {
   body {
-    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4 ;
+    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4;
+  }
+  header {
+    @apply bg-white dark:bg-gray-950;
   }
   a {
     @apply hover:text-inherit;
