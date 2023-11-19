@@ -13,31 +13,38 @@ import '../styles/index.css';
 
 const Dasboard = () => {
   // State
-  const { user } = useAuth();
+  const { user, isLoggedIn } = useAuth();
   const [posts, setPosts] = useState([]);
   const [currentEmoji, setCurrentEmoji] = useState(null);
 
   // Methods
-  const fetchData = async () => {
-    const result = await fetchPosts();
-    setPosts(result?.data.reverse());
-    // Temp use local storage
-    // setPosts(result?.reverse());
+  const fetchUserPosts = async () => {
+    try {
+      const result = await fetchPosts(user.id);
+      setPosts(result?.data.reverse());
+    } catch (error) {
+      console.error('Error fetching posts:', error.message);
+    }
   };
+
   const savePost = async () => {
-    const newPost = {
-      userId: user.id,
-      createdAt: new Date(),
-      name: currentEmoji.name,
-      secondary: currentEmoji.secondary,
-      type: currentEmoji.type,
-      level: currentEmoji.level,
-      emoji: currentEmoji.emoji,
-    };
-    console.log(newPost)
-    await createPost(newPost);
-    await fetchData();
+    try {
+      const newPost = {
+        userId: user.id,
+        createdAt: new Date(),
+        name: currentEmoji.name,
+        secondary: currentEmoji.secondary,
+        type: currentEmoji.type,
+        level: currentEmoji.level,
+        emoji: currentEmoji.emoji,
+      };
+      await createPost(newPost);
+      await fetchUserPosts();
+    } catch (error) {
+      console.error('Error saving post:', error.message);
+    }
   };
+
   const formatDateAndTime = (createdAt) => {
     if (!createdAt) {
       return { date: '', time: '' };
@@ -56,18 +63,18 @@ const Dasboard = () => {
     };
   };
 
-  // Watchers
+  // Lifecycle
   useEffect(() => {
     if (currentEmoji) {
       savePost();
     }
     return;
   }, [currentEmoji]);
-
-  // Lifecycle
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (user) {
+      fetchUserPosts();
+    }
+  }, [user]);
 
   return (
     <Container>
@@ -77,10 +84,12 @@ const Dasboard = () => {
         </Col>
       </Row>
       <Row>
-        <EmojiGrid
-          currentEmoji={currentEmoji}
-          setCurrentEmoji={setCurrentEmoji}
-        />
+        {
+          posts ? <EmojiGrid
+            currentEmoji={currentEmoji}
+            setCurrentEmoji={setCurrentEmoji}
+          /> : ''
+        }
       </Row>
       <br />
       <br />

@@ -6,12 +6,16 @@ const router = express.Router();
 // GET
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find();
+    const userId = req.query.userId; // Access userId from query parameters
+    console.log(userId);
+
+    const posts = await Post.find({ userId }).populate('userId'); // Modify the query based on your data model
     res.json(posts);
   } catch (error) {
     res.status(500).json({ error: 'Could not fetch posts' });
   }
 });
+
 // router.get('/:id', async (req, res) => {
 //   try {
 //     const post = await Post.findById(req.params.id);
