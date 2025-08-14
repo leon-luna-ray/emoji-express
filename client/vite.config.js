@@ -9,6 +9,11 @@ export default defineConfig({
   build: {
     outDir: 'build',
   },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
   plugins: [
     reactRefresh(),
     svgrPlugin({
