@@ -1,6 +1,24 @@
 @theme {
+  /* Colors */
+  --color-black: #000000;
+  --color-yellow: #FDE046;
+  --color-white: #FFFFFF;
+  --color-hot-pink: #FF1493;
+  --color-electric-blue: #0066FF;
+  --color-lime: #32CD32;
+  --color-orange: #FF4500;
+  --color-purple: #8A2BE2;
+  --color-neon-green: #39FF14;
+  --color-magenta: #FF00FF;
+  --color-coral: #FF7F50;
+  --color-royal-blue: #4169E1;
+  --color-acid-green: #B0FF00;
+  --color-deep-pink: #FF1493;
+  --color-electric-violet: #8B00FF;
+  --color-chartreuse: #7FFF00;
+
+  /* Fonts */
   --font-sacramento: Sacramento, cursive;
   --font-playfair: Playfair Display, serif;
   --font-inter: Inter, sans-serif;
 }
-

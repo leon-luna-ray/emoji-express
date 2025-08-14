@@ -16,7 +16,7 @@ const Header = () => {
         <Link to='/'>
           <span id="logo">EmojiExpress</span>
         </Link>
-        <nav>
+        {/* <nav>
           <ul className='flex gap-x-[1rem] font-[200]'>
             {isLoggedIn ?
               <>
@@ -41,7 +41,7 @@ const Header = () => {
               </li>
             }
           </ul>
-        </nav>
+        </nav> */}
       </div>
     </header>
   )

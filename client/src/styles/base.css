@@ -8,7 +8,7 @@
 }
 
 body {
-  @apply font-inter dark:text-white dark:bg-gray-950 underline-offset-4;
+  @apply font-inter bg-yellow;
 }
 
 header {
