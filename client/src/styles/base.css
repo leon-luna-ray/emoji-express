@@ -8,7 +8,7 @@
 }
 
 body {
-  @apply font-inter bg-yellow;
+  @apply font-tertiary bg-yellow;
 }
 
 h1,
@@ -21,7 +21,7 @@ h5,
 .h3,
 .h4,
 .h5 {
-  @apply font-playfair font-bold;
+  @apply font-secondary font-bold;
 }
 
 h1,

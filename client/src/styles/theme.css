@@ -18,7 +18,7 @@
   --color-chartreuse: #7FFF00;
 
   /* Fonts */
-  --font-sacramento: Sacramento, cursive;
-  --font-playfair: Playfair Display, serif;
-  --font-inter: Inter, sans-serif;
+  --font-primary: Sacramento, cursive;
+  --font-secondary: Playfair Display, serif;
+  --font-tertiary: Inter, sans-serif;
 }

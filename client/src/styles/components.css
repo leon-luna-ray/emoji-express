@@ -1,24 +1,5 @@
-@utility btn {
-  & a {
-    @apply hover:text-inherit;
-  }
-
-  &.red {
-    @apply bg-red-500 text-white;
-  }
-}
-
-@utility red {
-  &.btn {
-    @apply bg-red-500 text-white;
-  }
-}
 
 
 .logo-text {
-  @apply text-[2rem] md:text-[2.6rem] font-medium font-sacramento no-underline text-yellow;
+  @apply text-[2rem] md:text-[2.6rem] font-medium font-primary no-underline text-yellow;
 }
-
-/* header nav a {
-  @apply hover:text-yellow-400;
-} */
