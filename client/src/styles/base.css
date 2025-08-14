@@ -11,14 +11,6 @@ body {
   @apply font-inter bg-yellow;
 }
 
-header {
-  @apply bg-white dark:bg-gray-950;
-}
-
-a {
-  @apply hover:text-inherit;
-}
-
 h1,
 h2,
 h3,

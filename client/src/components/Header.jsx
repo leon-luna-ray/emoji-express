@@ -11,11 +11,15 @@ const Header = () => {
   }
 
   return (
-    <header className='py-[1rem] sticky top-0 w-full'>
-      <div className='container flex justify-between items-center'>
-        <Link to='/'>
-          <span id="logo">EmojiExpress</span>
-        </Link>
+    <header className='mt-[1rem] w-full'>
+      <div className='container p-[2rem] flex justify-between items-center bg-black'>
+        <div className="flex flex-col text-yellow">
+
+          <Link to='/' className='logo-text'>
+            EmojiExpress
+          </Link>
+          <p className='text-[0.85rem]'>How are you feeling today?</p>
+        </div>
         {/* <nav>
           <ul className='flex gap-x-[1rem] font-[200]'>
             {isLoggedIn ?

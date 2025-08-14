@@ -15,10 +15,10 @@
 }
 
 
-#logo {
-  @apply text-[2rem] md:text-[3rem] font-medium font-sacramento;
+.logo-text {
+  @apply text-[2rem] md:text-[2.6rem] font-medium font-sacramento no-underline text-yellow;
 }
 
-header nav a {
+/* header nav a {
   @apply hover:text-yellow-400;
-}
+} */
