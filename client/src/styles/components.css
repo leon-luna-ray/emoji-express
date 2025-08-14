@@ -1,18 +1,24 @@
-@tailwind components;
-
-@layer components {
-  #logo {
-    @apply text-[2rem] md:text-[3rem] font-[500] font-sacramento;
-  }
-
-  .btn a {
+@utility btn {
+  & a {
     @apply hover:text-inherit;
   }
-  .btn.red {
+
+  &.red {
     @apply bg-red-500 text-white;
   }
+}
 
-  header nav a {
-    @apply hover:text-yellow-400;
+@utility red {
+  &.btn {
+    @apply bg-red-500 text-white;
   }
+}
+
+
+#logo {
+  @apply text-[2rem] md:text-[3rem] font-medium font-sacramento;
+}
+
+header nav a {
+  @apply hover:text-yellow-400;
 }
