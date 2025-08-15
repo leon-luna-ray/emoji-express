@@ -1,5 +1,48 @@
 
 
 .logo-text {
-  @apply text-[2rem] md:text-[2.6rem] font-medium font-primary no-underline text-yellow;
+  @apply text-[2rem] font-medium font-primary no-underline text-yellow-400 flex flex-col [&_p]:leading-[50%];
+}
+
+.emoji-card {
+  @apply text-center hover:cursor-pointer border-black border-[3px] py-[1rem];
+}
+
+.emoji-card.primary {
+  @apply bg-hot-pink ;
+}
+.emoji-card.secondary {
+  @apply bg-electric-blue ;
+}
+
+.emoji-card.tertiary {
+  @apply bg-lime ;
+}
+
+.emoji-card.quaternary {
+  @apply bg-orange ;
+}
+
+.emoji-card.quinary {
+  @apply bg-purple ;
+}
+
+.emoji-card.senary {
+  @apply bg-coral ;
+}
+
+.emoji-card.septenary {
+  @apply bg-magenta ;
+}
+
+.emoji-card.octonary {
+  @apply bg-coral ;
+}
+
+.emoji-card.nonary {
+  @apply bg-royal-blue ;
+}
+
+.emoji-card.denary {
+  @apply bg-acid-green;
 }

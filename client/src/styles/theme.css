@@ -18,7 +18,11 @@
   --color-chartreuse: #7FFF00;
 
   /* Fonts */
-  --font-primary: Sacramento, cursive;
+  --font-primary: "Major Mono Display", monospace;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-tertiary: "Montserrat", sans-serif;
+
+  /* --font-primary: Sacramento, cursive;
   --font-secondary: Playfair Display, serif;
-  --font-tertiary: Inter, sans-serif;
+  --font-tertiary: Inter, sans-serif; */
 }

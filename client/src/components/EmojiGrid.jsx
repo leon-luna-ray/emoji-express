@@ -5,13 +5,13 @@ import MoodBar from './MoodBar';
 
 const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
   const renderEmojiBtns = emojis.map((emoji, index) => {
-    return <EmojiBtn key={index} emoji={emoji} setCurrentEmoji={setCurrentEmoji} />
+    return <EmojiBtn key={index} index={index} emoji={emoji} setCurrentEmoji={setCurrentEmoji} />
   });
 
   return (
-    <div className='flex-col-2'>
-      <MoodBar currentEmoji={currentEmoji} />
-      <div className='grid grid-cols-4 md:grid-cols-6'>{renderEmojiBtns}</div>
+    <div className='border-[4px] border-black bg-white p-[1.25rem]'>
+      {/* <MoodBar currentEmoji={currentEmoji} /> */}
+      <div className='grid grid-cols-4 md:grid-cols-4 gap-[2rem]'>{renderEmojiBtns}</div>
     </div>
   );
 };

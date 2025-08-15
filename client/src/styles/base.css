@@ -1,14 +1,5 @@
-
-*,
-::after,
-::before,
-::backdrop,
-::file-selector-button {
-  border-color: var(--color-gray-200, currentcolor);
-}
-
 body {
-  @apply font-tertiary bg-yellow;
+  @apply font-tertiary bg-yellow-400;
 }
 
 h1,

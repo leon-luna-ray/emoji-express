@@ -17,10 +17,10 @@ const Header = () => {
         <div className='p-[2rem] flex justify-between items-center bg-black'>
           <div className="flex flex-col text-yellow">
 
-            <Link to='/' className='logo-text'>
-              EmojiExpress
+            <Link to='/' className='logo-text '>
+              <p>Emoji</p>
+              <p>Express</p>
             </Link>
-            <p className='text-[0.85rem]'>How are you feeling today?</p>
           </div>
           {/* <nav>
           <ul className='flex gap-x-[1rem] font-[200]'>
