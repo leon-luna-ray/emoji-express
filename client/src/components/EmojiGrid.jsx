@@ -9,9 +9,9 @@ const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
   });
 
   return (
-    <div className='border-[4px] border-black bg-white p-[1.25rem]'>
+    <div className='border-[4px] border-black bg-white p-[2rem]'>
       {/* <MoodBar currentEmoji={currentEmoji} /> */}
-      <div className='grid grid-cols-4 md:grid-cols-4 gap-[2rem]'>{renderEmojiBtns}</div>
+      <div className='grid grid-cols-3 md:grid-cols-4 gap-[1.25rem]'>{renderEmojiBtns}</div>
     </div>
   );
 };
