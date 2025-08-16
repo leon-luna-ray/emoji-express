@@ -11,10 +11,10 @@ const Header = () => {
   }
 
   return (
-    <header className='mt-[1rem] w-full'>
-      <div className='container'>
+    <header className='lg:mt-[1rem] w-full'>
+      <div className='bg-black'>
 
-        <div className='p-[2rem] pl-[2.5rem] flex justify-between items-center bg-black'>
+        <div className='p-[2rem] flex justify-between items-center'>
           <div className="flex flex-col text-yellow">
 
             <Link to='/' className='logo-text '>
@@ -23,7 +23,7 @@ const Header = () => {
             </Link>
           </div>
           <nav>
-            <ul className='flex gap-x-[1rem] font-[200]'>
+            <ul className='flex max-md:flex-col max-md:items-end gap-x-[1rem] font-[200]'>
               {isLoggedIn ?
                 <>
                   {user?.email ?

@@ -31,7 +31,7 @@ const HomePage = () => {
             <div className="container flex-col-1 text-center w-[70%] justify-center">
                 <h1 className='py-[1rem] h1'>Today I feel {faceEmojis[currentIndex]}</h1>
                 <h2 className='font-primary font-light'>Welcome to Emoji Express!</h2>
-                <p>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. 🚀 Whether you're feeling ecstatic, calm, or somewhere in between, Emoji Express lets you effortlessly capture your emotions with just a tap of an emoji. 🎉</p>
+                <p>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. Emoji Express lets you capture your mood with just a tap of an emoji. 🎉</p>
                 <div className="flex gap-x-[2rem] justify-center pt-[2rem]">
                     {isLoggedIn ?
                         <Link to='/dashboard'>

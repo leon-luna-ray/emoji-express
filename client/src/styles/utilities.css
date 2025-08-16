@@ -37,5 +37,5 @@
 }
 
 @utility container {
-  @apply mx-auto px-[1.5rem] max-w-[764px];
+  @apply mx-auto px-[1.5rem];
 }
