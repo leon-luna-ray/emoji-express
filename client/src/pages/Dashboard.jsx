@@ -87,10 +87,13 @@ const Dasboard = () => {
   }
 
   return (
-    <div className='flex-col-4'>
+    <div className='lg:flex-col-1'>
       <EmojiGrid currentEmoji={currentEmoji} setCurrentEmoji={setCurrentEmoji} />
-      <div className='grid grid-cols-2 md:grid-cols-4'>
-        {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} /> : ''}
+      <div className="flex-col-1 md:flex-col-2 p-[2rem] border-black border-[4px] max-lg:border-t-0 bg-cyan">
+        <h2 className='label-text-1'>History</h2>
+        <div className='flex-col-1'>
+          {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} /> : ''}
+        </div>
       </div>
     </div>
   );

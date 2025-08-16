@@ -39,3 +39,10 @@ h5,
 .h5 {
   @apply text-[1rem];
 }
+
+.label-text-1 {
+  @apply text-[1.25rem] font-bold uppercase tracking-[2px];
+}
+.label-text-2 {
+  @apply text-[1rem] font-bold uppercase tracking-[2px];
+}
