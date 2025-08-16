@@ -3,16 +3,18 @@
   --color-black: #000000;
   --color-yellow: #FDE046;
   --color-white: #FFFFFF;
-  --color-hot-pink: #FF1493;
-  --color-electric-blue: #0066FF;
-  --color-lime: #32CD32;
-  --color-orange: #FF4500;
-  --color-purple: #8A2BE2;
-  --color-neon-green: #39FF14;
-  --color-magenta: #FF00FF;
-  --color-coral: #FF7F50;
-  --color-royal-blue: #4169E1;
-  --color-acid-green: #B0FF00;
+  /* Updated bright colors with good contrast for black text */
+  --color-hot-pink: #FF69B4;
+  --color-electric-blue: #00BFFF;
+  --color-lime: #32FF32;
+  --color-orange: #FF8C00;
+  --color-purple: #DA70D6;
+  --color-cyan: #00FFFF;
+  --color-magenta: #FF1493;
+  --color-coral: #FF7F7F;
+  --color-royal-blue: #6495ED;
+  --color-acid-green: #ADFF2F;
+  /* Additional colors for variety */
   --color-deep-pink: #FF1493;
   --color-electric-violet: #8B00FF;
   --color-chartreuse: #7FFF00;
@@ -21,8 +23,4 @@
   --font-primary: "Major Mono Display", monospace;
   --font-secondary: "Montserrat", sans-serif;
   --font-tertiary: "Montserrat", sans-serif;
-
-  /* --font-primary: Sacramento, cursive;
-  --font-secondary: Playfair Display, serif;
-  --font-tertiary: Inter, sans-serif; */
 }

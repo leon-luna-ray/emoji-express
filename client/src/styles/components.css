@@ -5,44 +5,35 @@
 }
 
 .emoji-card {
-  @apply text-center hover:cursor-pointer border-black border-[3px] py-[1rem];
+  @apply text-center hover:cursor-pointer border-black border-[3px] py-[1rem] transition-transform duration-200 hover:scale-105 hover:rotate-0;
 }
-
 .emoji-card.primary {
-  @apply bg-hot-pink ;
+  @apply bg-hot-pink md:rotate-[-3deg];
 }
 .emoji-card.secondary {
-  @apply bg-electric-blue ;
+  @apply bg-electric-blue md:rotate-[2deg];
 }
-
 .emoji-card.tertiary {
-  @apply bg-lime ;
+  @apply bg-lime md:rotate-[-1deg];
 }
-
 .emoji-card.quaternary {
-  @apply bg-orange ;
+  @apply bg-orange md:rotate-[4deg];
 }
-
 .emoji-card.quinary {
-  @apply bg-purple ;
+  @apply bg-purple md:rotate-[-2deg];
 }
-
 .emoji-card.senary {
-  @apply bg-coral ;
+  @apply bg-cyan md:rotate-[1deg];
 }
-
 .emoji-card.septenary {
-  @apply bg-magenta ;
+  @apply bg-magenta md:rotate-[-4deg];
 }
-
 .emoji-card.octonary {
-  @apply bg-coral ;
+  @apply bg-coral md:rotate-[3deg];
 }
-
 .emoji-card.nonary {
-  @apply bg-royal-blue ;
+  @apply bg-royal-blue md:rotate-[-1.5deg];
 }
-
 .emoji-card.denary {
-  @apply bg-acid-green;
+  @apply bg-acid-green md:rotate-[2.5deg];
 }

@@ -16,7 +16,7 @@ const App = () => {
   return (
     <AuthProvider>
       <div id="react-app" className='relative h-screen flex justify-between flex-col'>
-        <div className='flex-col-2'>
+        <div>
           <Header />
           <main>
             <Routes>
