@@ -12,7 +12,7 @@ const EmojiGrid = ({ currentEmoji, setCurrentEmoji }) => {
     <div className='border-[4px] border-black bg-white p-[2rem] flex-col-1 md:flex-col-2'>
       <h2 className='label-text-1'>Select an Emoji</h2>
       {/* <MoodBar currentEmoji={currentEmoji} /> */}
-      <div className='grid grid-cols-3 md:grid-cols-4 gap-[1.25rem]'>{renderEmojiBtns}</div>
+      <div className='grid grid-cols-3 md:grid-cols-4 gap-[0.5rem] md:gap-[1.25rem]'>{renderEmojiBtns}</div>
     </div>
   );
 };

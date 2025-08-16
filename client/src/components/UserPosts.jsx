@@ -11,7 +11,6 @@ const UserPosts = ({ posts, formatDateAndTime }) => {
             <p className='text-[1.5rem]'> {post.emoji}</p>
             <p className='label-text-2'>{post.name}</p>
             <div className="flex flex-col gap-[0.5rem]">
-
               <p>{time}</p>
               <p className='post-subtext'>{date}</p>
             </div>

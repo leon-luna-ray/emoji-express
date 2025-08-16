@@ -11,7 +11,7 @@ const Header = () => {
   }
 
   return (
-    <header className='lg:mt-[1rem] w-full'>
+    <header className='lg:pt-[1rem] w-full'>
       <div className='bg-black'>
 
         <div className='p-[2rem] flex justify-between items-center'>
