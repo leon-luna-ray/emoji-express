@@ -1,18 +1,63 @@
-@tailwind components;
+.btn {
+  @apply py-[0.5rem] px-[1rem] border-black border-[3px] rounded-none transition-all-300 font-tertiary font-[500];
+}
 
-@layer components {
-  #logo {
-    @apply text-[2rem] md:text-[3rem] font-[500] font-sacramento;
-  }
+.btn.red {
+  @apply bg-bright-red text-white hover:bg-black hover:text-bright-red;
+}
 
-  .btn a {
-    @apply hover:text-inherit;
-  }
-  .btn.red {
-    @apply bg-red-500 text-white;
-  }
+.btn.green {
+  @apply bg-chartreuse text-black hover:bg-black hover:text-chartreuse;
+}
 
-  header nav a {
-    @apply hover:text-yellow-400;
-  }
+.btn.yellow {
+  @apply bg-yellow text-black hover:bg-black hover:text-yellow;
+}
+
+.logo-text {
+  @apply text-[2rem] font-medium font-primary no-underline !text-yellow-300 flex flex-col [&_p]:leading-[100%];
+}
+
+.emoji-card {
+  @apply text-center hover:cursor-pointer border-black border-[3px] py-[1rem] transition-transform duration-200 hover:scale-105 hover:rotate-0;
+}
+
+.emoji-card.primary {
+  @apply bg-hot-pink md:rotate-[-3deg] md:hover:rotate-0;
+}
+
+.emoji-card.secondary {
+  @apply bg-electric-blue md:rotate-[2deg] md:hover:rotate-0;
+}
+
+.emoji-card.tertiary {
+  @apply bg-lime md:rotate-[-1deg] md:hover:rotate-0;
+}
+
+.emoji-card.quaternary {
+  @apply bg-orange md:rotate-[4deg] md:hover:rotate-0;
+}
+
+.emoji-card.quinary {
+  @apply bg-purple md:rotate-[-2deg] md:hover:rotate-0;
+}
+
+.emoji-card.senary {
+  @apply bg-cyan md:rotate-[1deg] md:hover:rotate-0;
+}
+
+.emoji-card.septenary {
+  @apply bg-magenta md:rotate-[-4deg] md:hover:rotate-0;
+}
+
+.emoji-card.octonary {
+  @apply bg-coral md:rotate-[3deg] md:hover:rotate-0;
+}
+
+.emoji-card.nonary {
+  @apply bg-royal-blue md:rotate-[-1.5deg] md:hover:rotate-0;
+}
+
+.emoji-card.denary {
+  @apply bg-chartreuse md:rotate-[2.5deg] md:hover:rotate-0;
 }

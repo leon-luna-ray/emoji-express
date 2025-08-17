@@ -1,16 +1,24 @@
 import React from 'react';
 
-const UserPosts = ({ posts, formatDateAndTime }) => {
+const UserPosts = ({ posts, formatDateAndTime, deletePost }) => {
   const renderedPosts = posts.map((post, index) => {
     const date = formatDateAndTime(post.createdAt).date;
     const time = formatDateAndTime(post.createdAt).time;
     return (
       <div key={index}>
-        <div className='border py-[1rem] rounded-md text-center'>
-          <h1 className='text-[3rem]'> {post.emoji}</h1>
-          <p className='capitalize'>{post.name}</p>
-          <p>{time}</p>
-          <p className='post-subtext'>{date}</p>
+        <div className='border-black border-[3px] py-[1rem] px-[1rem] lg:px-[2rem] bg-white flex items-center justify-between'>
+          <div className="flex items-center gap-[1rem] lg:gap-[1.25rem]">
+            <p className='text-[4rem]'> {post.emoji}</p>
+            <div className="flex flex-col font-tertiary gap-[0.25rem]">
+              <p className='label-text-2'>{post.name}</p>
+              <div className='leading-[130%]'>
+
+                <p>{time}</p>
+                <p>{date}</p>
+              </div>
+            </div>
+          </div>
+          <button className='btn red' onClick={() => deletePost(post._id)}>Delete</button>
         </div>
       </div>
     );

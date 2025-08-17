@@ -1,45 +1,65 @@
-@tailwind base;
+/* Remove default list styles */
+ol, ul {
+  list-style: none;
+  padding-left: 0;
+}
 
-@layer base {
-  body {
-    @apply font-inter dark:text-white dark:bg-gray-950  underline-offset-4;
-  }
-  header {
-    @apply bg-white dark:bg-gray-950;
-  }
-  a {
-    @apply hover:text-inherit;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  .h1,
-  .h2,
-  .h3,
-  .h4,
-  .h5 {
-    @apply font-playfair font-[700];
-  }
-  h1,
-  .h1 {
-    @apply text-[3rem];
-  }
-  h2,
-  .h2 {
-    @apply text-[2.5rem];
-  }
-  h3,
-  .h3 {
-    @apply text-[2rem];
-  }
-  h4,
-  .h4 {
-    @apply text-[1.5rem];
-  }
-  h5,
-  .h5 {
-    @apply text-[1rem];
-  }
+/* Remove default margins */
+dl, ol, ul, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+
+body {
+  @apply font-secondary bg-yellow-300 max-w-[1024px] mx-auto underline-offset-2;
+}
+a {
+  @apply text-inherit underline hover:text-inherit;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  @apply font-bold;
+}
+
+h1,
+.h1 {
+  @apply text-[3rem];
+}
+
+h2,
+.h2 {
+  @apply text-[2.5rem];
+}
+
+h3,
+.h3 {
+  @apply text-[2rem];
+}
+
+h4,
+.h4 {
+  @apply text-[1.5rem];
+}
+
+h5,
+.h5 {
+  @apply text-[1rem];
+}
+
+.label-text-1 {
+  @apply text-[1.25rem] font-bold uppercase tracking-[2px];
+}
+.label-text-2 {
+  @apply text-[1rem] font-bold uppercase tracking-[2px];
+}
+.label-text-3 {
+  @apply text-[0.875rem] font-bold uppercase tracking-[2px];
 }

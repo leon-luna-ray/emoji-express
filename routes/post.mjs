@@ -51,14 +51,26 @@ router.post('/', async (req, res) => {
 // });
 
 // DELETE
-// router.delete('/:id', async (req, res) => {
-//   try {
-//     const post = await Post.findByIdAndDelete(req.params.id);
-//     if (!post) return res.status(404).json({ error: 'Post not found' });
-//     res.json({ message: 'Post deleted successfully' });
-//   } catch (error) {
-//     res.status(500).json({ error: 'Could not delete the post' });
-//   }
-// });
+router.delete('/:id', async (req, res) => {
+  try {
+    console.log('Attempting to delete post with ID:', req.params.id);
+    
+    // Check if the post exists first
+    const existingPost = await Post.findById(req.params.id);
+    console.log('Post found:', existingPost);
+    
+    if (!existingPost) {
+      console.log('Post not found in database');
+      return res.status(404).json({ error: 'Post not found' });
+    }
+    
+    const post = await Post.findByIdAndDelete(req.params.id);
+    console.log('Post deleted successfully:', post._id);
+    res.json({ message: 'Post deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting post:', error);
+    res.status(500).json({ error: 'Could not delete the post' });
+  }
+});
 
 export default router;

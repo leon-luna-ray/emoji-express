@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { fetchPosts, createPost } from '../lib/api'
+import { fetchPosts, createPost, deletePost } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
 
 import EmojiGrid from '../components/EmojiGrid';
 import UserPosts from '../components/UserPosts';
-// import DarkModeBtn from '../components/DarkModeBtn';
 
 const Dasboard = () => {
   const navigate = useNavigate();
@@ -36,10 +35,20 @@ const Dasboard = () => {
         level: currentEmoji.level,
         emoji: currentEmoji.emoji,
       };
-      createPost(newPost);
-      fetchUserPosts();
+      await createPost(newPost);
+      await fetchUserPosts();
     } catch (error) {
       console.error('Error saving post:', error.message);
+    }
+  };
+  const deleteUserPost = async (postId) => {
+    if (!confirm('Are you sure you want to delete this post?')) return;
+
+    try {
+      await deletePost(postId);
+      await fetchUserPosts();
+    } catch (error) {
+      console.error('Error deleting post:', error.message);
     }
   };
 
@@ -73,25 +82,35 @@ const Dasboard = () => {
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
 
-    if (storedToken) {
-      logIn(storedToken);
+    if (!storedToken) {
+      navigate('/login');
+      return;
+    }
+
+    logIn(storedToken);
+  }, []);
+
+  useEffect(() => {
+    if (user?.id) {
       fetchUserPosts();
     }
-    else if (!user || !isLoggedIn) {
-      navigate('/login')
-    }
-  }, []);
+  }, [user?.id]);
 
   if (!user || !isLoggedIn) {
     return null;
   }
 
   return (
-    <div className='container flex-col-4'>
+    <div className='lg:flex-col-1'>
       <EmojiGrid currentEmoji={currentEmoji} setCurrentEmoji={setCurrentEmoji} />
-      <div className='grid grid-cols-2 md:grid-cols-4'>
-        {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} /> : ''}
-      </div>
+      {!!posts.length &&
+        <div className="flex-col-1 md:flex-col-2 widget-padding border-black border-[4px] max-lg:border-t-0 bg-cyan">
+          <h2 className='label-text-1'>History</h2>
+          <div className='grid md:grid-cols-2 gap-[0.5rem]'>
+            {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} deletePost={deleteUserPost} /> : ''}
+          </div>
+        </div>
+      }
     </div>
   );
 };

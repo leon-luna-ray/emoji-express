@@ -27,22 +27,30 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="py-[3rem] md:py-[6rem] flex items-center bg-yellow-400 text-black">
-            <div className="container flex-col-1 text-center w-[70%] justify-center">
-                <h1 className='py-[1rem] h1'>Today I feel {faceEmojis[currentIndex]}</h1>
-                <h2 className='font-sacramento font-light'>Welcome to Emoji Express!</h2>
-                <p>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. 🚀 Whether you're feeling ecstatic, calm, or somewhere in between, Emoji Express lets you effortlessly capture your emotions with just a tap of an emoji. 🎉</p>
+        <div className="widget-padding lg:py-[3rem] flex items-center text-black border-black bg-electric-blue border-[4px]">
+            <div className="flex-col-1 text-center justify-center items-center lg:max-w-[70%] lg:mx-auto">
+                <div className="flex flex-col gap-y-[0.5rem] text-center">
+
+                    <h1 className='font-primary'>Emoji Express</h1>
+                    <div className="label-text-3">Mood Tracking App</div>
+                </div>
+                <div className="my-[2rem] flex flex-col items-center">
+
+                    <p className='!text-[3rem] font-[500] leading-[100%]'>Today I feel</p>
+                    <p className='text-[8rem] py-[1rem]'>{faceEmojis[currentIndex]}</p>
+                    <p className='lg:w-[50%]'>Embark on a journey of self-discovery and emotional well-being with our unique mood tracking app. Emoji Express lets you capture your mood with just a tap of an emoji. 🎉</p>
+                </div>
                 <div className="flex gap-x-[2rem] justify-center pt-[2rem]">
                     {isLoggedIn ?
                         <Link to='/dashboard'>
-                            <span className="btn red min-w-[6rem]">Go To Dashboard</span>
+                            <span className="btn green">Go To Dashboard</span>
                         </Link> :
                         <>
                             <Link to='/login'>
-                                <span className="btn red min-w-[6rem]">Login</span>
+                                <span className="btn green min-w-[6rem]">Login</span>
                             </Link>
                             <Link to='/signup'>
-                                <span className="btn red min-w-[6rem]">Signup</span>
+                                <span className="btn yellow min-w-[6rem]">Signup</span>
                             </Link>
                         </>
                     }

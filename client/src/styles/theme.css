@@ -1,0 +1,25 @@
+@theme {
+  /* Colors */
+  --color-black: #000000;
+  --color-yellow: #FDE046;
+  --color-white: #FFFFFF;
+  --color-hot-pink: #FF69B4;
+  --color-electric-blue: #00BFFF;
+  --color-lime: #32FF32;
+  --color-orange: #FF8C00;
+  --color-purple: #DA70D6;
+  --color-cyan: #00FFFF;
+  --color-magenta: #FF1493;
+  --color-coral: #FF7F7F;
+  --color-royal-blue: #6495ED;
+  --color-acid-green: #ADFF2F;
+  --color-deep-pink: #FF1493;
+  --color-electric-violet: #8B00FF;
+  --color-chartreuse: #7FFF00;
+  --color-bright-red: #FF0000;
+
+  /* Fonts */
+  --font-primary: "Major Mono Display", monospace;
+  --font-secondary: "Montserrat", sans-serif;
+  --font-tertiary: "IBM Plex Mono", monospace;
+}
