@@ -3,7 +3,6 @@
   --color-black: #000000;
   --color-yellow: #FDE046;
   --color-white: #FFFFFF;
-  /* Updated bright colors with good contrast for black text */
   --color-hot-pink: #FF69B4;
   --color-electric-blue: #00BFFF;
   --color-lime: #32FF32;
@@ -14,7 +13,6 @@
   --color-coral: #FF7F7F;
   --color-royal-blue: #6495ED;
   --color-acid-green: #ADFF2F;
-  /* Additional colors for variety */
   --color-deep-pink: #FF1493;
   --color-electric-violet: #8B00FF;
   --color-chartreuse: #7FFF00;

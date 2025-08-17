@@ -5,7 +5,6 @@ import { useAuth } from '../contexts/AuthContext'
 
 import EmojiGrid from '../components/EmojiGrid';
 import UserPosts from '../components/UserPosts';
-// import DarkModeBtn from '../components/DarkModeBtn';
 
 const Dasboard = () => {
   const navigate = useNavigate();
@@ -79,7 +78,7 @@ const Dasboard = () => {
     return;
   }, [currentEmoji]);
 
-  // Lifecycle - Handle authentication and initial data fetch
+  // Lifecycle
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
 
@@ -88,11 +87,9 @@ const Dasboard = () => {
       return;
     }
 
-    // Uncomment this line to properly set the user from token
     logIn(storedToken);
   }, []);
 
-  // Separate effect to fetch posts when user is available
   useEffect(() => {
     if (user?.id) {
       fetchUserPosts();
