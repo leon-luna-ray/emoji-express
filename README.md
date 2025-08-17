@@ -37,8 +37,7 @@ This is a full-stack MERN application with user authentication. Users can create
 - MongoDB
 
 ### Images
-![Screenshot 1](./client/assets/ee1.png)
-![Screenshot 1](./client/assets/ee2.png)
+![Screenshot 1](./client/assets/v4.png)
 
 ## License
 
