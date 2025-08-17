@@ -43,7 +43,7 @@ const HomePage = () => {
                 <div className="flex gap-x-[2rem] justify-center pt-[2rem]">
                     {isLoggedIn ?
                         <Link to='/dashboard'>
-                            <span className="btn green label-text-3">Go To Dashboard</span>
+                            <span className="btn green">Go To Dashboard</span>
                         </Link> :
                         <>
                             <Link to='/login'>

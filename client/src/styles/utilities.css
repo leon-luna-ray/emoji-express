@@ -20,6 +20,10 @@
   @apply flex flex-col gap-y-[0.3rem];
 }
 
+@utility flex-col-05 {
+  @apply flex flex-col gap-y-[0.5rem];
+}
+
 @utility flex-col-1 {
   @apply flex flex-col gap-y-4;
 }
@@ -35,6 +39,19 @@
 @utility flex-col-4 {
   @apply flex flex-col gap-y-16;
 }
+
 @utility widget-padding {
   @apply px-[1rem] py-[2rem] lg:p-[2rem];
+}
+
+@utility border-thick {
+  @apply border-[4px] border-black rounded-none;
+}
+
+@utility border-regular {
+  @apply border-[3px] border-black rounded-none;
+}
+
+@utility border-thin {
+  @apply border-[2px] border-black rounded-none;
 }
