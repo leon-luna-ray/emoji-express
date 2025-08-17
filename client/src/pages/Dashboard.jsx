@@ -36,8 +36,8 @@ const Dasboard = () => {
         level: currentEmoji.level,
         emoji: currentEmoji.emoji,
       };
-      createPost(newPost);
-      fetchUserPosts();
+      await createPost(newPost);
+      await fetchUserPosts();
     } catch (error) {
       console.error('Error saving post:', error.message);
     }
@@ -69,18 +69,25 @@ const Dasboard = () => {
     return;
   }, [currentEmoji]);
 
-  // Lifecycle
+  // Lifecycle - Handle authentication and initial data fetch
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
 
-    if (storedToken) {
-      logIn(storedToken);
+    if (!storedToken) {
+      navigate('/login');
+      return;
+    }
+
+    // Uncomment this line to properly set the user from token
+    logIn(storedToken);
+  }, []);
+
+  // Separate effect to fetch posts when user is available
+  useEffect(() => {
+    if (user?.id) {
       fetchUserPosts();
     }
-    else if (!user || !isLoggedIn) {
-      navigate('/login')
-    }
-  }, []);
+  }, [user?.id]);
 
   if (!user || !isLoggedIn) {
     return null;
