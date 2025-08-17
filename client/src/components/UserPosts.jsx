@@ -18,7 +18,7 @@ const UserPosts = ({ posts, formatDateAndTime, deletePost }) => {
               </div>
             </div>
           </div>
-          <button className='btn red label-text-3' onClick={() => deletePost(post._id)}>Delete</button>
+          <button className='btn red' onClick={() => deletePost(post._id)}>Delete</button>
         </div>
       </div>
     );

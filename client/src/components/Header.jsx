@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from '../contexts/AuthContext';
 
 const Header = () => {
   const { isLoggedIn, logOut, user } = useAuth();
+  const location = useLocation();
 
   return (
     <header className='lg:pt-[1rem] w-full'>
@@ -17,10 +18,11 @@ const Header = () => {
             {!!user?.email &&
               <p className='text-yellow-300 font-[500] text-end'>{user.email}</p>
             }
-            {isLoggedIn ?
-              <Link onClick={logOut} to='/login' className='btn label-text-3 red'>Logout</Link>
-              :
-              <Link to='/login' className='btn label-text-3 yellow'>
+            {!!isLoggedIn &&
+              <button onClick={logOut} to='/login' className='btn red'>Logout</button>
+            }
+            {!isLoggedIn && location.pathname !== '/login' &&
+              <Link to='/login' className='btn green'>
                 Login
               </Link>
             }

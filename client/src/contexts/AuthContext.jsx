@@ -1,9 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token') || null);
@@ -25,10 +27,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
+    if (!confirm("Are you sure you want to log out?")) return;
     localStorage.removeItem('token');
     setUser(null);
     setLoggedIn(false);
     setToken(null);
+    navigate('/login');
   };
 
   useEffect(() => {

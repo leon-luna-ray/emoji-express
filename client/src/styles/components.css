@@ -1,13 +1,13 @@
 .btn {
-  @apply py-[0.5rem] px-[1rem] border-black border-[3px] rounded-none transition-all-300 font-tertiary;
+  @apply py-[0.5rem] px-[1rem] border-black border-[3px] rounded-none transition-all-300 font-tertiary font-[500];
 }
 
 .btn.red {
-  @apply bg-bright-red text-white hover:bg-white hover:text-bright-red;
+  @apply bg-bright-red text-white hover:bg-black hover:text-bright-red;
 }
 
 .btn.green {
-  @apply bg-acid-green text-black hover:bg-acid-green/70;
+  @apply bg-acid-green text-black hover:bg-black hover:text-acid-green;
 }
 
 .btn.yellow {
