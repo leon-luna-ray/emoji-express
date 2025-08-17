@@ -22,8 +22,10 @@ This is a full-stack MERN application with user authentication. Users can create
 
 ## Technologies
 
-### Frontend
+### Language
 - JavaScript
+
+### Frontend
 - React.js
 - CSS3
 - HTML5
@@ -35,6 +37,7 @@ This is a full-stack MERN application with user authentication. Users can create
 - Node.js
 - Fly.io
 - MongoDB
+- Docker
 
 ### Images
 ![Screenshot 1](./client/assets/v4.png)
