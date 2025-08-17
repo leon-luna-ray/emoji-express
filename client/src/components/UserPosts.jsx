@@ -6,12 +6,12 @@ const UserPosts = ({ posts, formatDateAndTime, deletePost }) => {
     const time = formatDateAndTime(post.createdAt).time;
     return (
       <div key={index}>
-        <div className='border-black border-[3px] pt-[1rem] px-[1rem] lg:px-[2rem] bg-white flex items-center justify-between'>
-          <div className="flex items-center gap-[1rem]">
+        <div className='border-black border-[3px] py-[1rem] px-[1rem] lg:px-[2rem] bg-white flex items-center justify-between'>
+          <div className="flex items-center gap-[1rem] lg:gap-[1.25rem]">
             <p className='text-[4rem]'> {post.emoji}</p>
-            <div className="flex flex-col font-tertiary gap-0">
-              <p className='label-text-2 leading-[80%]'>{post.name}</p>
-              <div className='leading-[50%]'>
+            <div className="flex flex-col font-tertiary gap-[0.25rem]">
+              <p className='label-text-2'>{post.name}</p>
+              <div className='leading-[130%]'>
 
                 <p>{time}</p>
                 <p>{date}</p>

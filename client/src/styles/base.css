@@ -1,7 +1,21 @@
-body {
-  @apply font-secondary bg-yellow-400 max-w-[1024px] mx-auto;
+/* Remove default list styles */
+ol, ul {
+  list-style: none;
+  padding-left: 0;
 }
 
+/* Remove default margins */
+dl, ol, ul, p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+
+body {
+  @apply font-secondary bg-yellow-300 max-w-[1024px] mx-auto underline-offset-2;
+}
+a {
+  @apply text-inherit underline hover:text-inherit;
+}
 h1,
 h2,
 h3,
@@ -12,7 +26,7 @@ h5,
 .h3,
 .h4,
 .h5 {
-  @apply font-secondary font-bold;
+  @apply font-bold;
 }
 
 h1,
