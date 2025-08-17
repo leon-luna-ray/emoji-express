@@ -35,7 +35,9 @@
 @utility flex-col-4 {
   @apply flex flex-col gap-y-16;
 }
-
+@utility widget-padding {
+  @apply px-[1rem] py-[2rem] lg:p-[2rem];
+}
 /* @utility container {
   @apply mx-auto px-[1.5rem];
 } */

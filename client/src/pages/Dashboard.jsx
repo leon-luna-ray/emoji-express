@@ -107,7 +107,7 @@ const Dasboard = () => {
     <div className='lg:flex-col-1'>
       <EmojiGrid currentEmoji={currentEmoji} setCurrentEmoji={setCurrentEmoji} />
       {!!posts.length &&
-        <div className="flex-col-1 md:flex-col-2 p-[2rem] border-black border-[4px] max-lg:border-t-0 bg-cyan">
+        <div className="flex-col-1 md:flex-col-2 widget-padding border-black border-[4px] max-lg:border-t-0 bg-cyan">
           <h2 className='label-text-1'>History</h2>
           <div className='grid md:grid-cols-2 gap-[0.5rem]'>
             {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} deletePost={deleteUserPost} /> : ''}
