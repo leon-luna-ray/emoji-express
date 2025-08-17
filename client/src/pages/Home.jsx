@@ -27,7 +27,7 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="widget-padding lg:py-[3rem] flex items-center text-black border-black bg-cyan border-[4px]">
+        <div className="widget-padding lg:py-[3rem] flex items-center text-black border-black bg-electric-blue border-[4px]">
             <div className="flex-col-1 text-center justify-center items-center lg:max-w-[70%] lg:mx-auto">
                 <div className="flex flex-col gap-y-[0.5rem] text-center">
 
