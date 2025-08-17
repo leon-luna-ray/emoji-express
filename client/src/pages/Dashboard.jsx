@@ -43,6 +43,8 @@ const Dasboard = () => {
     }
   };
   const deleteUserPost = async (postId) => {
+    if (!confirm('Are you sure you want to delete this post?')) return;
+
     try {
       await deletePost(postId);
       await fetchUserPosts();

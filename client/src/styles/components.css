@@ -1,5 +1,5 @@
 .btn {
-  @apply py-[0.5rem] px-[1rem] border-black border-[4px] transition-all-300;
+  @apply py-[0.5rem] px-[1rem] border-black border-[3px] rounded-none transition-all-300;
 }
 
 .btn.red {
