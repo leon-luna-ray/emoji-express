@@ -46,3 +46,6 @@ h5,
 .label-text-2 {
   @apply text-[1rem] font-bold uppercase tracking-[2px];
 }
+.label-text-3 {
+  @apply text-[0.875rem] font-bold uppercase tracking-[2px];
+}

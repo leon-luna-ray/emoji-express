@@ -25,7 +25,7 @@ const EmojiBtn = ({ index, emoji, setCurrentEmoji }) => {
       }}
     >
       <h1 className='leading-[100%]'>{emoji.emoji}</h1>
-      <p className='emoji-name capitalize leading-[100%] font-[600] text-[1.25rem]'>{emoji.name}</p>
+      <p className='emoji-name font-tertiary uppercase leading-[100%] font-[600] text-[1.25rem]'>{emoji.name}</p>
     </div>
   );
 };
