@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { fetchPosts, createPost } from '../lib/api'
+import { fetchPosts, createPost, deletePost } from '../lib/api'
 import { useAuth } from '../contexts/AuthContext'
 
 import EmojiGrid from '../components/EmojiGrid';
@@ -40,6 +40,14 @@ const Dasboard = () => {
       await fetchUserPosts();
     } catch (error) {
       console.error('Error saving post:', error.message);
+    }
+  };
+  const deleteUserPost = async (postId) => {
+    try {
+      await deletePost(postId);
+      await fetchUserPosts();
+    } catch (error) {
+      console.error('Error deleting post:', error.message);
     }
   };
 
@@ -98,8 +106,8 @@ const Dasboard = () => {
       <EmojiGrid currentEmoji={currentEmoji} setCurrentEmoji={setCurrentEmoji} />
       <div className="flex-col-1 md:flex-col-2 p-[2rem] border-black border-[4px] max-lg:border-t-0 bg-cyan">
         <h2 className='label-text-1'>History</h2>
-        <div className='flex-col-1'>
-          {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} /> : ''}
+        <div className='grid md:grid-cols-2 gap-[0.5rem]'>
+          {posts ? <UserPosts posts={posts} formatDateAndTime={formatDateAndTime} deletePost={deleteUserPost} /> : ''}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 body {
-  @apply font-tertiary bg-yellow-400 max-w-[1024px] mx-auto;
+  @apply font-secondary bg-yellow-400 max-w-[1024px] mx-auto;
 }
 
 h1,

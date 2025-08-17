@@ -25,6 +25,15 @@ export const createPost = async (newPost) => {
     throw error;
   }
 };
+export const deletePost = async (postId) => {
+  try {
+    const response = await axios.delete(`${baseURL}/posts/${postId}`);
+    return response;
+  } catch (error) {
+    console.error('Error deleting post:', error);
+    throw error;
+  }
+};
 
 // Auth
 export const createNewUser = async (data) => {
