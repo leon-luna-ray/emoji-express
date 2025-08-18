@@ -1,21 +1,23 @@
 FROM node:22-slim
 
-# Enable corepack and install pnpm
 RUN corepack enable
 RUN corepack prepare pnpm@latest --activate
 
 WORKDIR /app
 
-# Copy package files
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
 RUN pnpm install --frozen-lockfile
 
-# Copy source code
 COPY . .
 
-# RUN pnpm build
+# Build the frontend in client folder
+WORKDIR /app/client
+RUN pnpm install --frozen-lockfile
+RUN pnpm build
+
+# Return to main app directory
+WORKDIR /app
 
 EXPOSE 3000
 
