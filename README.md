@@ -9,6 +9,8 @@ This is a full-stack MERN application with user authentication. Users can create
 
 [🚀 https://emoji-express.fly.dev/](https://emoji-express.fly.dev/)
 
+![Fly Deploy](https://github.com/leon-luna-ray/emoji-express/actions/workflows/fly-deploy.yml/badge.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/leon-luna-ray/emoji-express)
 ## Table of Contents
 
 - [Image](#image)
