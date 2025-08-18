@@ -1,15 +1,15 @@
-FROM node:18
+FROM node:22
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
 
-RUN yarn install
+RUN pnpm install
 
 COPY . .
 
-# RUN yarn build
+# RUN pnpm build
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["pnpm", "start"]
