@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = import.meta.env.VITE_BASE_API_URL;
+const baseURL = import.meta.env.VITE_BASE_API_URL || '';
 
 // Posts
 export const fetchPosts = async (userId) => {
